@@ -1,0 +1,26 @@
+.pageLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 10px 0;
+  border-radius: 10px;
+  background: #FFF;
+  color: #FF868E;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover {
+    background: #FBE0DC;
+  }
+
+  &:active {
+    color: #FFF;
+    background: #FF868E;
+  }
+}

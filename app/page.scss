@@ -1,0 +1,39 @@
+.logo {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 8px;
+  margin-bottom: 80px;
+}
+
+.title {
+  margin: 0 0 10px;
+  color: #1D1D1D;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 58px;
+}
+
+.welcomeMessage {
+  margin: 10px 0 60px;
+  color: #8C8C8C;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.navigationLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.linksTitle {
+  color: #1D1D1D;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
