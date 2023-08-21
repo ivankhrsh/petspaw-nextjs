@@ -1,6 +1,9 @@
+'use client'
+
 import { NavigationButton } from '@/components/NavigationButton/NavigationButton';
 import styles from './page.module.scss'
 import classNames from 'classnames/bind';
+import { SelectItem } from '@/components/SelectItem/SelectItem';
 
 interface CatImage {
   id: string;
@@ -43,14 +46,60 @@ export default async function Gallery() {
         <NavigationButton link='/' text='Upload'/>
       </div>
 
-      <div className={cn('imagesContainer')}>
-        <ul className={cn('filterParams')}>
-          <li>Order</li>
-          <li>Type</li>
-          <li>Breed</li>
-          <li>Limit</li>
+      <div className={cn('contentContainer')}>
+        <div className={cn('filterParams')}>
+          <SelectItem
+            options={[
+              { title: 'Random', value: 'RAND' },
+              { title: 'Ascending', value: 'ASC' },
+              { title: 'Descending', value: 'DESC' },
+            ]}
+            onChange={
+              (event: React.ChangeEvent<HTMLSelectElement>) => {
+                console.log("User Selected Value - ", event.target.value)
+            }}
+            title={'Order'}
+          />
+
+          <SelectItem
+            options={[
+              { title: 'All', value: 'jpg,gif,png' },
+              { title: 'Static', value: 'jpg,png' },
+              { title: 'Animated', value: 'gif' },
+            ]}
+            onChange={
+              (event: React.ChangeEvent<HTMLSelectElement>) => {
+                console.log("User Selected Value - ", event.target.value)
+            }}
+            title={'Type'}
+          />
+
+          <SelectItem
+            options={[
+              { title: 'TODO API', value: '' },
+            ]}
+            onChange={
+              (event: React.ChangeEvent<HTMLSelectElement>) => {
+                console.log("User Selected Value - ", event.target.value)
+            }}
+            title={'Breed'}
+          />
+
+          <SelectItem
+            options={[
+              { title: '5 items per page', value: '5' },
+              { title: '10 items per page', value: '10' },
+              { title: '15 items per page', value: '15' },
+              { title: '20 items per page', value: '20' },
+            ]}
+            onChange={
+              (event: React.ChangeEvent<HTMLSelectElement>) => {
+                console.log("User Selected Value - ", event.target.value)
+            }}
+            title={'Breed'}
+          />
           Refresh
-        </ul>
+        </div>
 
         {data.length && data.map(item => (
           <img className={cn('catImage')} key={item.id} src={item.url} alt='cat'/>
