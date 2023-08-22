@@ -2,4 +2,30 @@
   display: grid;
   gap: 10px;
   margin-bottom: 10px;
+  grid-template-areas: 
+  "burger .  like fav dislike"
+  "search search search search search";
+  grid-template-columns: repeat(auto, 60px);
+  grid-template-rows: 60px 60px;
+
+}
+
+.headerBurger {
+  grid-area: burger;
+}
+
+.headerSearch {
+  grid-area: search;
+}
+
+.headerFav {
+  grid-area: fav;
+}
+
+.headerLikes {
+  grid-area: like;
+}
+
+.headerDislikes {
+  grid-area: dislike;
 }
