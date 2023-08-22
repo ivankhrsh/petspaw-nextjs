@@ -5,8 +5,6 @@
   flex-shrink: 0;
   padding: 10px 0;
   border-radius: 10px;
-  background: #FFF;
-  color: #FF868E;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -14,6 +12,11 @@
   letter-spacing: 2px;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.nav {
+  background: #FFF;
+  color: #FF868E;
 
   &:hover {
     background: #FBE0DC;
@@ -23,4 +26,20 @@
     color: #FFF;
     background: #FF868E;
   }
+}
+
+.button {
+  background: #FBE0DC;
+  color: #FF868E;
+
+  &:hover {
+    color: #FFF;
+    background: #FF868E;
+  }
+}
+
+.active {
+  pointer-events:none;
+  color: #FFF;
+  background: #FF868E;
 }

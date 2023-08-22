@@ -11,19 +11,21 @@ interface Option {
 
 interface Props {
   options: Option[];
-  onChange: (value: React.ChangeEvent<HTMLSelectElement>) => void;
+  onChange?: (value: React.ChangeEvent<HTMLSelectElement>) => void;
   title: string;
 }
 
 export const SelectItem: FC<Props> = ({ options, onChange, title}) =>{
-
-
   return (
     <div className={cn('selectItem')} >
-     <label className={cn('selectLabel')} htmlFor="orderSelect">{title}</label>
-      <select className={cn('selectMenu')} id="orderSelect" onChange={(event) => onChange(event)}>
+     <label className={cn('selectLabel')} htmlFor={title}>{title}</label>
+      <select 
+        className={cn('selectMenu')} 
+        id={title} 
+        // onChange={(event) => onChange(event)}
+      >
         {options.map((option, index) => {
-            return <option key={index} >
+            return <option key={index} className={cn('optionItem')}>
                 {option.title}
             </option>
         })}

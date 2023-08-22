@@ -1,9 +1,8 @@
-'use client'
-
-import { NavigationButton } from '@/components/NavigationButton/NavigationButton';
+import { Button } from '@/components/Button/Button';
 import styles from './page.module.scss'
 import classNames from 'classnames/bind';
 import { SelectItem } from '@/components/SelectItem/SelectItem';
+import { Reload } from '@/public/svg';
 
 interface CatImage {
   id: string;
@@ -15,7 +14,8 @@ interface CatImage {
 const cn = classNames.bind(styles);
 
 async function getData() {
-  const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=5');
+  const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=5', 
+  {cache: 'no-store'});
  
   if (!response.ok) {
     throw new Error('Failed to fetch data');
@@ -32,22 +32,22 @@ export default async function Gallery() {
   <div>
     <div className={cn('pageContent')}>
 
-      <div className={cn('breadCrumbs')}>
-        <div className={cn('backButton')}>
-          <NavigationButton link='/' text='<'/>
-        </div>
-
-        <div className={cn('currentPageButton')}>
-          <NavigationButton link='/gallery' text='Gallery'/>
-        </div>
-      </div>
-
-      <div className={cn('uploadButton')}>
-        <NavigationButton link='/' text='Upload'/>
-      </div>
-
       <div className={cn('contentContainer')}>
         <div className={cn('filterParams')}>
+        <div className={cn('breadCrumbs')}>
+          <div className={cn('backButton')}>
+            <Button link='/' btnType='button' backBtn={true}/>
+          </div>
+
+          <div className={cn('currentPageButton')}>
+            <Button link='/gallery' text='Gallery' btnType='active'/>
+          </div>
+        </div>
+
+        <div className={cn('uploadButton')}>
+          <Button link='/' text='Upload' btnType='button' />
+        </div>
+
           <SelectItem
             options={[
               { title: 'Random', value: 'RAND' },
@@ -67,10 +67,6 @@ export default async function Gallery() {
               { title: 'Static', value: 'jpg,png' },
               { title: 'Animated', value: 'gif' },
             ]}
-            onChange={
-              (event: React.ChangeEvent<HTMLSelectElement>) => {
-                console.log("User Selected Value - ", event.target.value)
-            }}
             title={'Type'}
           />
 
@@ -78,10 +74,6 @@ export default async function Gallery() {
             options={[
               { title: 'TODO API', value: '' },
             ]}
-            onChange={
-              (event: React.ChangeEvent<HTMLSelectElement>) => {
-                console.log("User Selected Value - ", event.target.value)
-            }}
             title={'Breed'}
           />
 
@@ -92,18 +84,18 @@ export default async function Gallery() {
               { title: '15 items per page', value: '15' },
               { title: '20 items per page', value: '20' },
             ]}
-            onChange={
-              (event: React.ChangeEvent<HTMLSelectElement>) => {
-                console.log("User Selected Value - ", event.target.value)
-            }}
-            title={'Breed'}
+            title={'Limit'}
           />
-          Refresh
+          <div className={cn('reloadButton')}>
+            <Button link='/gallery' text={<Reload/>} btnType='nav'/>
+          </div>
         </div>
 
-        {data.length && data.map(item => (
-          <img className={cn('catImage')} key={item.id} src={item.url} alt='cat'/>
-        ))}
+        <div className={cn('photosContainer')}>
+          {data.length > 0 && data.map(item => (
+            <img className={cn('catImage')} key={item.id} src={item.url} alt='cat'/>
+          ))}
+        </div>
       </div>
     </div>
   </div>
