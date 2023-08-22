@@ -14,7 +14,7 @@ interface CatImage {
 const cn = classNames.bind(styles);
 
 async function getData() {
-  const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=5', 
+  const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=5',
   {cache: 'no-store'});
  
   if (!response.ok) {
