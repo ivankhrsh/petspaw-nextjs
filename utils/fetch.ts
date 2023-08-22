@@ -7,8 +7,7 @@ function request<T>(
   method: RequestMethod = 'GET',
   data: any = null,
 ): Promise<T> {
-  const token = 'live_UxE31aeOTjvPsV3ycjfhofe6lvRpVc75yDYqtUVwNl7xxJcinOW05jDOCyOeuAOx';
-
+  const token = process.env.NEXT_PUBLIC_API_KEY;
   const options: RequestInit = { method };
 
   options.headers = {

@@ -9,7 +9,7 @@ import { FC, ReactNode, useState } from "react"
 interface Props {
   link: string;
   text?: string | ReactNode;
-  btnType?: "button" | "nav" | "active" | "back";
+  btnType?: "button" | "nav" | "active" | "back" | "reload";
   backBtn?: boolean;
 }
 

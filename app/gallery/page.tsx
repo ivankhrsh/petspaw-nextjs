@@ -4,8 +4,10 @@ import { Button } from '@/components/Button/Button';
 import styles from './page.module.scss'
 import classNames from 'classnames/bind';
 import { SelectItem } from '@/components/SelectItem/SelectItem';
-import { Reload } from '@/public/svg';
+import { Loader, Reload } from '@/public/svg';
 import { getData } from '@/utils/getData';
+import { useEffect, useState } from 'react';
+import { ReloadButton } from '@/components/ReloadButton/ReloadButton';
 
 interface CatImage {
   id: string;
@@ -19,18 +21,51 @@ interface Breed {
   name: string;
 }
 
+interface Filter {
+  [title: string]: string | number;
+}
+
 const cn = classNames.bind(styles);
 
-export default async function Gallery() {
-  const [cats, breeds] = await Promise.all([
-    getData<CatImage[]>('images/search?limit=5'), 
-    getData<Breed[]>('breeds')
-  ]);
+const filterToQuery = (filters: Filter[]) => {
+  const queryParams = new URLSearchParams();
 
-  const modifiedBreeds = breeds.map(({ name, id }) => ({
-    title: name,
-    value: id.toString(),
-  }));
+  filters.forEach(filter => {
+    const [key, value] = Object.entries(filter)[0];
+    queryParams.append(key, value.toString());
+  });
+
+  return queryParams.toString();
+}
+
+export default function Gallery() {
+  const [cats, setCats] = useState<CatImage[]>([]);
+  const [breeds, setBreeds]= useState<Breed[]>([]);
+  const [filters, setFilters] = useState<Filter[]>([{
+    limit: 5,
+  }])
+
+  useEffect(() => {
+    getData<CatImage[]>(`images/search?${filterToQuery(filters)}`)
+        .then((data) => setCats(data))
+
+    getData<Breed[]>('breeds')
+      .then((data) => setBreeds(data))
+}, []); 
+
+  const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>, filterType: string) => {
+    const { value } = event.target;
+    const newFilter = { [filterType]: value };
+    setFilters(prevFilters => {
+      const updatedFilters = prevFilters.filter(filter => !filter.hasOwnProperty(filterType));
+      return [...updatedFilters, newFilter];
+    });
+  }
+
+  const handleReload = () => {
+    getData<CatImage[]>(`images/search?${filterToQuery(filters)}`)
+    .then((data) => setCats(data));
+  }
 
   return (
   <div>
@@ -58,12 +93,9 @@ export default async function Gallery() {
               { title: 'Ascending', value: 'ASC' },
               { title: 'Descending', value: 'DESC' },
             ]}
-            onChange={
-              (event: React.ChangeEvent<HTMLSelectElement>) => {
-                console.log("User Selected Value - ", event.target.value)
-            }}
             title={'Order'}
-          />
+            onChange={(event) => handleFilterChange(event, 'order')}
+            />
 
           <SelectItem
             options={[
@@ -72,13 +104,20 @@ export default async function Gallery() {
               { title: 'Animated', value: 'gif' },
             ]}
             title={'Type'}
-          />
+            onChange={(event) => handleFilterChange(event, 'type')}
+            />
 
           <SelectItem
-            options={modifiedBreeds}
+            options={
+              (breeds.map(({ name, id }) => 
+              ({ title: name,
+                value: id.toString(),
+              })))
+            }
             title={'Breed'}
-          />
-
+            onChange={(event) => handleFilterChange(event, 'breed')}
+            defaultOption='None'
+            />
           <SelectItem
             options={[
               { title: '5 items per page', value: '5' },
@@ -87,16 +126,18 @@ export default async function Gallery() {
               { title: '20 items per page', value: '20' },
             ]}
             title={'Limit'}
-          />
+            onChange={(event) => handleFilterChange(event, 'limit')}
+            />
           <div className={cn('reloadButton')}>
-            <Button link='/gallery' text={<Reload/>} btnType='nav'/>
+            <ReloadButton text={<Reload/>} btnType='nav' onClick={handleReload}/>
           </div>
         </div>
 
         <div className={cn('photosContainer')}>
-          {cats.length > 0 && cats.map(item => (
+          {(cats.length > 0) ? (cats.map(item => (
             <img className={cn('catImage')} key={item.id} src={item.url} alt='cat'/>
-          ))}
+          )))
+            : <Loader/>}
         </div>
       </div>
     </div>
