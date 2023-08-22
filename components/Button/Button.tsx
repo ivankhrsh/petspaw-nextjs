@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 interface Props {
   link: string;
   text?: string | ReactNode;
-  btnType?: "button" | "nav" | "active" | "back" | "reload";
+  btnType?: "button" | "nav" | "active";
   backBtn?: boolean;
 }
 

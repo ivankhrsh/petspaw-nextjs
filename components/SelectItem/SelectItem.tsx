@@ -6,7 +6,7 @@ const cn = classNames.bind(styles);
 
 interface Option {
   title: string;
-  value: string;
+  value: string | number;
 }
 
 interface Props {

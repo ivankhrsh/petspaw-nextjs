@@ -5,7 +5,7 @@ import { FC, useState } from "react"
 
 interface Props {
   onClick: () => void;
-  btnType?: "button" | "nav" | "active" | "back" | "reload";
+  btnType?: "button" | "nav" | "active";
 }
 
 const cn = classNames.bind(styles);

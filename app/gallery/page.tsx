@@ -22,28 +22,32 @@ interface Breed {
 }
 
 interface Filter {
-  [title: string]: string | number;
+  order?: string;
+  mime_types?: string;
+  breed_ids?: string;
+  limit: number;
 }
 
 const cn = classNames.bind(styles);
 
-const filterToQuery = (filters: Filter[]) => {
+const filterToQuery = (filters: Filter) => {
   const queryParams = new URLSearchParams();
 
-  filters.forEach(filter => {
-    const [key, value] = Object.entries(filter)[0];
-    queryParams.append(key, value.toString());
+  Object.entries(filters).forEach(([key, value]) => {
+    if (value !== undefined) {
+      queryParams.append(key, value.toString());
+    }
   });
 
   return queryParams.toString();
-}
+};
 
 export default function Gallery() {
   const [cats, setCats] = useState<CatImage[]>([]);
   const [breeds, setBreeds]= useState<Breed[]>([]);
-  const [filters, setFilters] = useState<Filter[]>([{
+  const [filters, setFilters] = useState<Filter>({
     limit: 5,
-  }])
+  })
 
   useEffect(() => {
     getData<CatImage[]>(`images/search?${filterToQuery(filters)}`)
@@ -55,12 +59,12 @@ export default function Gallery() {
 
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>, filterType: string) => {
     const { value } = event.target;
-    const newFilter = { [filterType]: value };
     setFilters(prevFilters => {
-      const updatedFilters = prevFilters.filter(filter => !filter.hasOwnProperty(filterType));
-      return [...updatedFilters, newFilter];
+      return {...prevFilters, [filterType]: value};
     });
   }
+
+  console.log(filters);
 
   const handleReload = () => {
     getData<CatImage[]>(`images/search?${filterToQuery(filters)}`)
@@ -120,23 +124,23 @@ export default function Gallery() {
             />
           <SelectItem
             options={[
-              { title: '5 items per page', value: '5' },
-              { title: '10 items per page', value: '10' },
-              { title: '15 items per page', value: '15' },
-              { title: '20 items per page', value: '20' },
+              { title: '5 items per page', value: 5 },
+              { title: '10 items per page', value: 10 },
+              { title: '15 items per page', value: 15 },
+              { title: '20 items per page', value: 20 },
             ]}
             title={'Limit'}
             onChange={(event) => handleFilterChange(event, 'limit')}
             />
           <div className={cn('reloadButton')}>
-            <ReloadButton btnType='nav' onClick={handleReload}/>
+            <ReloadButton btnType='button'  onClick={handleReload}/>
           </div>
         </div>
 
         <div className={cn('photosContainer')}>
-          {(cats.length > 0) && (cats.map(item => (
-            <div className={cn('imageContainer')}>
-              <img className={cn('catImage')} key={item.id} src={item.url} alt='cat'/>
+          {(cats?.map(item => (
+            <div className={cn('imageContainer')} key={item.id}>
+              <img className={cn('catImage')} src={item.url} alt='cat'/>
               <div className={cn('customOverlay')}></div> 
 
               <div className={cn('likeContainer')}>
