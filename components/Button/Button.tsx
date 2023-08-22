@@ -5,6 +5,7 @@ import styles from './Button.module.scss'
 import classNames from 'classnames/bind';
 import Link from "next/link"
 import { FC, ReactNode, useState } from "react"
+import { useRouter } from 'next/navigation';
 
 interface Props {
   link: string;
@@ -17,6 +18,8 @@ const cn = classNames.bind(styles);
 
 export const Button: FC<Props> = ({ link, text, btnType, backBtn }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const router = useRouter();
 
   const buttonClassNames = cn({
     pageLink: true,
@@ -33,22 +36,22 @@ export const Button: FC<Props> = ({ link, text, btnType, backBtn }) => {
     setIsHovered(false);
   };
 
-  return (
-    <>
-      {backBtn ? (
-        <Link
-          href={`${link}`}
+  if (backBtn) {
+    return (
+        <div
           className={cn(buttonClassNames)}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          onClick={() => router.back()}
         >
           <BackArrow fill={isHovered ? '#FFF' : '#FF868E'} />
-        </Link>
-      ) : (
-        <Link href={`${link}`} className={cn(buttonClassNames)}>
-          {text}
-        </Link>
-      )}
-    </>
+        </div>
+    )
+  }
+
+  return (
+    <Link href={`${link}`} className={cn(buttonClassNames)}>
+      {text}
+    </Link>
   );
 };
