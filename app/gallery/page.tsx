@@ -115,7 +115,7 @@ export default function Gallery() {
               })))
             }
             title={'Breed'}
-            onChange={(event) => handleFilterChange(event, 'breed')}
+            onChange={(event) => handleFilterChange(event, 'breed_ids')}
             defaultOption='None'
             />
           <SelectItem
