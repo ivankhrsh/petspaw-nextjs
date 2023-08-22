@@ -104,7 +104,7 @@ export default function Gallery() {
               { title: 'Animated', value: 'gif' },
             ]}
             title={'Type'}
-            onChange={(event) => handleFilterChange(event, 'type')}
+            onChange={(event) => handleFilterChange(event, 'mime_types')}
             />
 
           <SelectItem
