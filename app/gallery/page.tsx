@@ -1,8 +1,11 @@
+'use client'
+
 import { Button } from '@/components/Button/Button';
 import styles from './page.module.scss'
 import classNames from 'classnames/bind';
 import { SelectItem } from '@/components/SelectItem/SelectItem';
 import { Reload } from '@/public/svg';
+import { getData } from '@/utils/getData';
 
 interface CatImage {
   id: string;
@@ -11,22 +14,23 @@ interface CatImage {
   height: number;
 }
 
-const cn = classNames.bind(styles);
-
-async function getData() {
-  const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=5',
-  {cache: 'no-store'});
- 
-  if (!response.ok) {
-    throw new Error('Failed to fetch data');
-  }
- 
-  const data: CatImage[] = await response.json();
-  return data;
+interface Breed {
+  id: number;
+  name: string;
 }
 
+const cn = classNames.bind(styles);
+
 export default async function Gallery() {
-  const data = await getData();
+  const [cats, breeds] = await Promise.all([
+    getData<CatImage[]>('images/search?limit=5'), 
+    getData<Breed[]>('breeds')
+  ]);
+
+  const modifiedBreeds = breeds.map(({ name, id }) => ({
+    title: name,
+    value: id.toString(),
+  }));
 
   return (
   <div>
@@ -45,7 +49,7 @@ export default async function Gallery() {
         </div>
 
         <div className={cn('uploadButton')}>
-          <Button link='/' text='Upload' btnType='button' />
+          <Button link='/upload' text='Upload' btnType='button' />
         </div>
 
           <SelectItem
@@ -71,9 +75,7 @@ export default async function Gallery() {
           />
 
           <SelectItem
-            options={[
-              { title: 'TODO API', value: '' },
-            ]}
+            options={modifiedBreeds}
             title={'Breed'}
           />
 
@@ -92,7 +94,7 @@ export default async function Gallery() {
         </div>
 
         <div className={cn('photosContainer')}>
-          {data.length > 0 && data.map(item => (
+          {cats.length > 0 && cats.map(item => (
             <img className={cn('catImage')} key={item.id} src={item.url} alt='cat'/>
           ))}
         </div>
