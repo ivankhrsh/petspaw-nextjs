@@ -134,10 +134,16 @@ export default function Gallery() {
         </div>
 
         <div className={cn('photosContainer')}>
-          {(cats.length > 0) ? (cats.map(item => (
-            <img className={cn('catImage')} key={item.id} src={item.url} alt='cat'/>
-          )))
-            : <Loader/>}
+          {(cats.length > 0) && (cats.map(item => (
+            <div className={cn('imageContainer')}>
+              <img className={cn('catImage')} key={item.id} src={item.url} alt='cat'/>
+              <div className={cn('customOverlay')}></div> 
+
+              <div className={cn('likeContainer')}>
+                <div className={cn('likeButton')}>Like</div>
+              </div>
+            </div>
+          )))}
         </div>
       </div>
     </div>
