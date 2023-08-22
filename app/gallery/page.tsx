@@ -4,10 +4,10 @@ import { Button } from '@/components/Button/Button';
 import styles from './page.module.scss'
 import classNames from 'classnames/bind';
 import { SelectItem } from '@/components/SelectItem/SelectItem';
-import { Loader, Reload } from '@/public/svg';
 import { getData } from '@/utils/getData';
 import { useEffect, useState } from 'react';
 import { ReloadButton } from '@/components/ReloadButton/ReloadButton';
+import { Header } from '@/components/Header/Header';
 
 interface CatImage {
   id: string;
@@ -70,7 +70,7 @@ export default function Gallery() {
   return (
   <div>
     <div className={cn('pageContent')}>
-
+    <Header/>
       <div className={cn('contentContainer')}>
         <div className={cn('filterParams')}>
         <div className={cn('breadCrumbs')}>
@@ -129,7 +129,7 @@ export default function Gallery() {
             onChange={(event) => handleFilterChange(event, 'limit')}
             />
           <div className={cn('reloadButton')}>
-            <ReloadButton text={<Reload/>} btnType='nav' onClick={handleReload}/>
+            <ReloadButton btnType='nav' onClick={handleReload}/>
           </div>
         </div>
 

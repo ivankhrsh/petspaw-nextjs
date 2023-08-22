@@ -1,19 +1,17 @@
-'use client'
-
+import { Reload } from '@/public/svg';
 import styles from './ReloadButton.module.scss'
 import classNames from 'classnames/bind';
-import { FC, ReactNode, useState } from "react"
+import { FC, useState } from "react"
 
 interface Props {
   onClick: () => void;
-  text?: string | ReactNode;
   btnType?: "button" | "nav" | "active" | "back" | "reload";
 }
 
 const cn = classNames.bind(styles);
 
-export const ReloadButton: FC<Props> = ({text, btnType, onClick }) => {
-  const [isHovered, setIsHovered] = useState(false);
+export const ReloadButton: FC<Props> = ({ btnType, onClick }) => {
+  const [isClicked, setIsClicked] = useState(false);
 
   const buttonClassNames = cn({
     pageLink: true,
@@ -22,13 +20,22 @@ export const ReloadButton: FC<Props> = ({text, btnType, onClick }) => {
     active: btnType === "active",
   });
 
+  const handleMouseEnter = () => {
+    setIsClicked(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsClicked(false);
+  };
 
   return (
     <div
-      onClick={onClick} 
+      onClick={onClick}
       className={cn(buttonClassNames)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      {text}
+      <Reload fill={isClicked ? '#FFF' : '#FF868E'} />
     </div>
   );
 };
