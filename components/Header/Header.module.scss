@@ -7,7 +7,6 @@
   "search search search search search";
   grid-template-columns: repeat(auto, 60px);
   grid-template-rows: 60px 60px;
-
 }
 
 .headerBurger {
@@ -16,6 +15,7 @@
 
 .headerSearch {
   grid-area: search;
+  margin-right: 40px;
 }
 
 .headerFav {

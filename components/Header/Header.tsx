@@ -4,6 +4,7 @@ import styles from './Header.module.scss'
 import { Button } from "../Button/Button";
 import { Burger, Dislike, Favourites, Like } from "@/public/svg";
 import { HeaderButton } from "../HeaderButton/HeaderButton";
+import { Search } from "../SearchInput/SearchInput";
 
 const cn = classNames.bind(styles);
 
@@ -23,9 +24,8 @@ export const Header: FC = () => {
           <Button link="/dislikes" text={<Dislike fill={'#FF868E'} />} btnType='nav' />
       </div>
       <div className={cn('headerSearch')}>
-        <Button link="/" text='searchbar' btnType='nav'/>
+        <Search/>
       </div>
-      
     </div>
   )
 }

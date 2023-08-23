@@ -1,0 +1,25 @@
+.searchItem {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 20px;
+  background: #FFF;
+  color: #8C8C8C;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  outline: none;
+  border: 2px transparent solid;
+
+  &:hover {
+    border: 2px solid #FBE0DC;
+  }
+
+  &:active {
+    border: 2px solid #FF868E;
+  }
+
+  &:focus {
+    border: 2px solid #FF868E;
+  }
+}

@@ -8,13 +8,7 @@ import { getData } from '@/utils/getData';
 import { useEffect, useState } from 'react';
 import { ReloadButton } from '@/components/ReloadButton/ReloadButton';
 import { Header } from '@/components/Header/Header';
-
-interface CatImage {
-  id: string;
-  url: string;
-  width: number;
-  height: number;
-}
+import { CatImage } from '@/types/CatImage';
 
 interface Breed {
   id: number;
@@ -63,8 +57,6 @@ export default function Gallery() {
       return {...prevFilters, [filterType]: value};
     });
   }
-
-  console.log(filters);
 
   const handleReload = () => {
     getData<CatImage[]>(`images/search?${filterToQuery(filters)}`)
