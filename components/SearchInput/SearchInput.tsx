@@ -32,7 +32,7 @@ export const Search: FC = () => {
   } 
 
   const handleClick = async () => {
-      console.log(searchParams)
+    if (searchParams.length > 0) {
       const params = new URLSearchParams({q: searchParams});
       try {
         const res = await getData<CatData[]>(`breeds/search?q=${params}`);
@@ -40,6 +40,7 @@ export const Search: FC = () => {
       } catch (error) {
         console.error('Error fetching data:', error);
       }
+    }
   } 
 
 
