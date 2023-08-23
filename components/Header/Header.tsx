@@ -25,6 +25,7 @@ export const Header: FC = () => {
       <div className={cn('headerSearch')}>
         <Button link="/" text='searchbar' btnType='nav'/>
       </div>
+      
     </div>
   )
 }

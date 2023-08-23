@@ -19,7 +19,7 @@ function request<T>(
     options.body = JSON.stringify(data);
   }
 
-  return fetch(BASE_URL + url, options).then((response) => {
+  return fetch(`${BASE_URL}${url}`, options).then((response) => {
     if (!response.ok) {
       return response.json().then((error) => {
         throw new Error(error.message);
