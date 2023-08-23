@@ -6,7 +6,7 @@ import styles from './SearchInput.module.scss'
 import { getData } from "@/utils/getData";
 import { CatData } from "@/types/CatData";
 import { useRouter } from 'next/navigation';
-
+import { SearchButton } from "../SearchButton/SearchButton";
 
 const cn = classNames.bind(styles);
 
@@ -19,9 +19,8 @@ export const Search: FC = () => {
    setSearchParams(e.target.value);
   }
 
-  const handleKeyPress = async  (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyPress = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && searchParams.length > 0) {
-      console.log('Search submitted:', searchParams);
       const params = new URLSearchParams({q: searchParams});
       try {
         const res = await getData<CatData[]>(`breeds/search?q=${params}`);
@@ -32,8 +31,21 @@ export const Search: FC = () => {
     }
   } 
 
+  const handleClick = async () => {
+      console.log(searchParams)
+      const params = new URLSearchParams({q: searchParams});
+      try {
+        const res = await getData<CatData[]>(`breeds/search?q=${params}`);
+        router.push(`/search/${searchParams}`);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+  } 
+
+
   return (
-      <input 
+    <>
+      <input
         type="text" 
         placeholder="Search for breeds by name" 
         className={cn('searchItem')}
@@ -41,5 +53,7 @@ export const Search: FC = () => {
         onChange={handleSearch}
         onKeyDown={handleKeyPress}
       />
+        <SearchButton onClick={handleClick} btnType="button"/>
+    </>
   )
 };

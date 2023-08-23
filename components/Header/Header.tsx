@@ -12,16 +12,16 @@ export const Header: FC = () => {
   return (
     <div className={cn('headerContent')}>
       <div className={cn('headerBurger')}>
-        <HeaderButton link="/" text={<Burger fill={'#FF868E'}/>} btnType='nav'/>
+        <HeaderButton link="/" text={<Burger/>} btnType='nav'/>
       </div>
         <div className={cn('headerLikes')}>
-          <Button link="/likes" text={<Like fill={'#FF868E'} />} btnType='nav' />
+          <Button link="/likes" text={<Like/>} btnType='nav' />
         </div>
         <div className={cn('headerFav')}>
-          <Button link="/favourites" text={<Favourites fill={'#FF868E'} />} btnType='nav' />
+          <Button link="/favourites" text={<Favourites/>} btnType='nav' />
         </div>
         <div className={cn('headerDislikes')}>
-          <Button link="/dislikes" text={<Dislike fill={'#FF868E'} />} btnType='nav' />
+          <Button link="/dislikes" text={<Dislike/>} btnType='nav' />
       </div>
       <div className={cn('headerSearch')}>
         <Search/>

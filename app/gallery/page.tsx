@@ -6,7 +6,7 @@ import classNames from 'classnames/bind';
 import { SelectItem } from '@/components/SelectItem/SelectItem';
 import { getData } from '@/utils/getData';
 import { useEffect, useState } from 'react';
-import { ReloadButton } from '@/components/ReloadButton/ReloadButton';
+import { ActionButton } from '@/components/ActionButton/ActionButton';
 import { Header } from '@/components/Header/Header';
 import { CatImage } from '@/types/CatImage';
 
@@ -125,7 +125,7 @@ export default function Gallery() {
             onChange={(event) => handleFilterChange(event, 'limit')}
             />
           <div className={cn('reloadButton')}>
-            <ReloadButton btnType='button'  onClick={handleReload}/>
+            <ActionButton btnType='button'  onClick={handleReload}/>
           </div>
         </div>
 
