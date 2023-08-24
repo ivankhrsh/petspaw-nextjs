@@ -1,10 +1,10 @@
-import { FC } from "react"
+import React, { type FC } from 'react'
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss'
-import { Button } from "../Button/Button";
-import { Burger, Dislike, Favourites, Like } from "@/public/svg";
-import { HeaderButton } from "../HeaderButton/HeaderButton";
-import { Search } from "../SearchInput/SearchInput";
+import { Button } from '../Button/Button';
+import { Burger, Dislike, Favourites, Like } from '@/public/svg';
+import { HeaderButton } from '../HeaderButton/HeaderButton';
+import { Search } from '../SearchInput/SearchInput';
 
 const cn = classNames.bind(styles);
 

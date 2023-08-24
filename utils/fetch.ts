@@ -25,7 +25,7 @@ function request<T>(
         throw new Error(error.message);
       });
     }
-
+  
     return response.json();
   });
 }

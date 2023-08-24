@@ -1,9 +1,11 @@
-export const PetsPaw = ( {...props}) => {
+import React from 'react';
+
+export const PetsPaw = ({ ...props }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" 
-      width="73" 
-      height="13" 
-      viewBox="0 0 73 13" 
+    <svg xmlns="http://www.w3.org/2000/svg"
+      width="73"
+      height="13"
+      viewBox="0 0 73 13"
       fill="currentColor"
       {...props}
     >
@@ -18,13 +20,13 @@ export const PetsPaw = ( {...props}) => {
   )
 }
 
-export const Paw = ( {...props}) => {
+export const Paw = ({ ...props }) => {
   return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="24" 
-      height="24" 
-      viewBox="0 0 24 24" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
       fill="currentColor"
       {...props}
     >
@@ -38,17 +40,17 @@ export const Paw = ( {...props}) => {
   )
 }
 
-export const DropdownArrow = ( {...props} ) => {
+export const DropdownArrow = ({ ...props }) => {
   return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
       width="12"
-      height="12" 
-      viewBox="0 0 12 12" 
+      height="12"
+      viewBox="0 0 12 12"
       fill="currentColor"
       {...props}
     >
-      <g clip-path="url(#clip0_1_1593)">
+      <g clipPath="url(#clip0_1_1593)">
         <path d="M6.59406 9.17405L11.7538 4.01423C12.0821 3.68603 12.0821 3.15383 11.7538 2.82575C11.4256 2.49767 10.8935 2.49767 10.5655 2.82575L5.99993 7.39142L1.43458 2.82593C1.10635 2.49779 0.574264 2.49779 0.24617 2.82593C-0.0820567 3.15401 -0.0820567 3.68615 0.24617 4.01435L5.40591 9.17418C5.57003 9.33824 5.78492 9.42017 5.9999 9.42017C6.21498 9.42017 6.43002 9.33807 6.59406 9.17405Z" fill="#8C8C8C"/>
       </g>
       <defs>
@@ -60,28 +62,28 @@ export const DropdownArrow = ( {...props} ) => {
   )
 }
 
-export const Reload = ( {...props} ) => {
+export const Reload = ({ ...props }) => {
   return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="18" 
-      height="20" 
-      viewBox="0 0 18 20" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="20"
+      viewBox="0 0 18 20"
       fill="currentColor"
       {...props}
     >
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M8.48189 2.49989L6.93396 0.953004L7.88633 0L11.0577 3.16928L7.88634 6.33873L6.93395 5.38576L8.47232 3.84832C4.51244 3.99813 1.3473 7.25498 1.3473 11.2478C1.3473 15.3361 4.66547 18.6527 8.75744 18.6527C12.8494 18.6527 16.1676 15.3361 16.1676 11.2478V10.5742H17.5149V11.2478C17.5149 16.081 13.5927 20 8.75744 20C3.92221 20 0 16.081 0 11.2478C0 6.50682 3.77407 2.64542 8.48189 2.49989Z"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M8.48189 2.49989L6.93396 0.953004L7.88633 0L11.0577 3.16928L7.88634 6.33873L6.93395 5.38576L8.47232 3.84832C4.51244 3.99813 1.3473 7.25498 1.3473 11.2478C1.3473 15.3361 4.66547 18.6527 8.75744 18.6527C12.8494 18.6527 16.1676 15.3361 16.1676 11.2478V10.5742H17.5149V11.2478C17.5149 16.081 13.5927 20 8.75744 20C3.92221 20 0 16.081 0 11.2478C0 6.50682 3.77407 2.64542 8.48189 2.49989Z"/>
     </svg>
   )
 }
 
-export const BackArrow = ( {...props} ) => {
+export const BackArrow = ({ ...props }) => {
   return (
-  <svg 
+  <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="12" 
-    height="16" 
-    viewBox="0 0 12 20" 
+    width="12"
+    height="16"
+    viewBox="0 0 12 20"
     fill="currentColor"
     {...props}
   >
@@ -90,38 +92,38 @@ export const BackArrow = ( {...props} ) => {
   )
 }
 
-export const Upload = ( {...props} ) => {
+export const Upload = ({ ...props }) => {
   return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="16" 
-      height="16" 
-      viewBox="0 0 16 16" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
       fill="currentColor"
       {...props}
     >
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M7.86601 0L12.2355 4.03339L11.4129 4.92452L8.48919 2.22567V12.3618H7.27645V2.30464L4.67336 4.90772L3.81583 4.05019L7.86601 0ZM1.21274 14.7873V7.51081H0V16H15.7656V7.51081H14.5529V14.7873H1.21274Z"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M7.86601 0L12.2355 4.03339L11.4129 4.92452L8.48919 2.22567V12.3618H7.27645V2.30464L4.67336 4.90772L3.81583 4.05019L7.86601 0ZM1.21274 14.7873V7.51081H0V16H15.7656V7.51081H14.5529V14.7873H1.21274Z"/>
     </svg>
   )
 }
 
-export const Loader = ( {...props} ) => {
+export const Loader = ({ ...props }) => {
   return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="16" 
-      height="16" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
       viewBox="0 0 16 16"
       fill="currentColor"
       {...props}
      >
-      <g clip-path="url(#clip0_1_1565)">
-        <circle cx="8" cy="8" r="7" stroke="url(#paint0_angular_1_1565)" stroke-width="2"/>
+      <g clipPath="url(#clip0_1_1565)">
+        <circle cx="8" cy="8" r="7" stroke="url(#paint0_angular_1_1565)" strokeWidth="2"/>
       </g>
       <defs>
         <radialGradient id="paint0_angular_1_1565" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(8 8) rotate(90) scale(8)">
-          <stop stop-color="#FF868E"/>
-          <stop offset="1" stop-color="#FF868E" stop-opacity="0"/>
+          <stop stopColor="#FF868E"/>
+          <stop offset="1" stopColor="#FF868E" stopOpacity="0"/>
         </radialGradient>
         <clipPath id="clip0_1_1565">
           <rect width="16" height="16" fill="white"/>
@@ -131,77 +133,77 @@ export const Loader = ( {...props} ) => {
   )
 }
 
-export const Burger = ( {...props} ) => {
+export const Burger = ({ ...props }) => {
   return (
-    <svg 
+    <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="30" 
+      width="30"
       height="30"
-      viewBox="0 0 30 20" 
+      viewBox="0 0 30 20"
       fill="currentColor"
       {...props}
     >
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M30 2H0V0H30V2ZM30 10H0V8H30V10ZM30 18H0V16H30V18Z"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M30 2H0V0H30V2ZM30 10H0V8H30V10ZM30 18H0V16H30V18Z"/>
     </svg>
   )
 }
 
-export const Like = ( {...props} ) => {
+export const Like = ({ ...props }) => {
   return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="30" 
-      height="30" 
-      viewBox="0 0 30 30" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="30"
+      height="30"
+      viewBox="0 0 30 30"
       fill="currentColor"
       {...props}
     >
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15ZM15 2C7.8203 2 2 7.8203 2 15C2 22.1797 7.8203 28 15 28C22.1797 28 28 22.1797 28 15C28 7.8203 22.1797 2 15 2ZM10 12H8V10H10V12ZM22 12H20V10H22V12ZM9.2 16.6L9.8 17.4C12.4 20.8667 17.6 20.8667 20.2 17.4L20.8 16.6L22.4 17.8L21.8 18.6C18.4 23.1333 11.6 23.1333 8.2 18.6L7.6 17.8L9.2 16.6Z"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15ZM15 2C7.8203 2 2 7.8203 2 15C2 22.1797 7.8203 28 15 28C22.1797 28 28 22.1797 28 15C28 7.8203 22.1797 2 15 2ZM10 12H8V10H10V12ZM22 12H20V10H22V12ZM9.2 16.6L9.8 17.4C12.4 20.8667 17.6 20.8667 20.2 17.4L20.8 16.6L22.4 17.8L21.8 18.6C18.4 23.1333 11.6 23.1333 8.2 18.6L7.6 17.8L9.2 16.6Z"/>
     </svg>
   )
 }
 
-export const Dislike = ( {...props} ) => {
+export const Dislike = ({ ...props }) => {
   return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="30" 
-      height="30" 
-      viewBox="0 0 30 30" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="30"
+      height="30"
+      viewBox="0 0 30 30"
       fill="currentColor"
       {...props}
     >
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15ZM15 2C7.8203 2 2 7.8203 2 15C2 22.1797 7.8203 28 15 28C22.1797 28 28 22.1797 28 15C28 7.8203 22.1797 2 15 2ZM10 12H8V10H10V12ZM22 12H20V10H22V12ZM7.6 20.2L8.2 19.4C11.6 14.8667 18.4 14.8667 21.8 19.4L22.4 20.2L20.8 21.4L20.2 20.6C17.6 17.1333 12.4 17.1333 9.8 20.6L9.2 21.4L7.6 20.2Z"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15ZM15 2C7.8203 2 2 7.8203 2 15C2 22.1797 7.8203 28 15 28C22.1797 28 28 22.1797 28 15C28 7.8203 22.1797 2 15 2ZM10 12H8V10H10V12ZM22 12H20V10H22V12ZM7.6 20.2L8.2 19.4C11.6 14.8667 18.4 14.8667 21.8 19.4L22.4 20.2L20.8 21.4L20.2 20.6C17.6 17.1333 12.4 17.1333 9.8 20.6L9.2 21.4L7.6 20.2Z"/>
     </svg>
   )
 }
 
-export const Favourites = ( {...props} ) => {
+export const Favourites = ({ ...props }) => {
   return (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width="30" 
-    height="30" 
-    viewBox="0 0 30 26" 
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="30"
+    height="30"
+    viewBox="0 0 30 26"
     fill="currentColor"
     {...props}
   >
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.07107 2C4.71811 2 2 4.71811 2 8.07107C2 9.68122 2.63963 11.2254 3.77817 12.364L15 23.5858L26.2218 12.364C27.3604 11.2254 28 9.68121 28 8.07107C28 4.71811 25.2819 2 21.9289 2C20.3188 2 18.7746 2.63963 17.636 3.77817L15.7071 5.70711C15.3166 6.09763 14.6834 6.09763 14.2929 5.70711L12.364 3.77818C11.2254 2.63963 9.68121 2 8.07107 2ZM0 8.07107C0 3.61354 3.61354 0 8.07107 0C10.2116 0 12.2646 0.850343 13.7782 2.36396L15 3.58579L16.2218 2.36396C17.7354 0.850341 19.7884 0 21.9289 0C26.3865 0 30 3.61354 30 8.07107C30 10.2116 29.1497 12.2646 27.636 13.7782L15.7071 25.7071C15.3166 26.0976 14.6834 26.0976 14.2929 25.7071L2.36396 13.7782C0.850339 12.2646 0 10.2116 0 8.07107Z"/>
+    <path fillRule="evenodd" clipRule="evenodd" d="M8.07107 2C4.71811 2 2 4.71811 2 8.07107C2 9.68122 2.63963 11.2254 3.77817 12.364L15 23.5858L26.2218 12.364C27.3604 11.2254 28 9.68121 28 8.07107C28 4.71811 25.2819 2 21.9289 2C20.3188 2 18.7746 2.63963 17.636 3.77817L15.7071 5.70711C15.3166 6.09763 14.6834 6.09763 14.2929 5.70711L12.364 3.77818C11.2254 2.63963 9.68121 2 8.07107 2ZM0 8.07107C0 3.61354 3.61354 0 8.07107 0C10.2116 0 12.2646 0.850343 13.7782 2.36396L15 3.58579L16.2218 2.36396C17.7354 0.850341 19.7884 0 21.9289 0C26.3865 0 30 3.61354 30 8.07107C30 10.2116 29.1497 12.2646 27.636 13.7782L15.7071 25.7071C15.3166 26.0976 14.6834 26.0976 14.2929 25.7071L2.36396 13.7782C0.850339 12.2646 0 10.2116 0 8.07107Z"/>
   </svg>
   )
 }
 
-export const Search = ( {...props} ) => {
+export const Search = ({ ...props }) => {
   return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="20" 
-      height="20" 
-      viewBox="0 0 20 20" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
       fill="currentColor"
       {...props}
     >
-      <g clip-path="url(#clip0_1_1573)">
+      <g clipPath="url(#clip0_1_1573)">
         <path d="M19.3613 18.2168L14.6012 13.2662C15.8251 11.8113 16.4957 9.98069 16.4957 8.07499C16.4957 3.62251 12.8732 0 8.4207 0C3.96821 0 0.345703 3.62251 0.345703 8.07499C0.345703 12.5275 3.96821 16.15 8.4207 16.15C10.0922 16.15 11.6851 15.6458 13.047 14.6888L17.8432 19.677C18.0436 19.8852 18.3133 20 18.6022 20C18.8757 20 19.1352 19.8957 19.3321 19.7061C19.7506 19.3034 19.764 18.6357 19.3613 18.2168ZM8.4207 2.10652C11.7118 2.10652 14.3892 4.78391 14.3892 8.07499C14.3892 11.3661 11.7118 14.0435 8.4207 14.0435C5.12961 14.0435 2.45222 11.3661 2.45222 8.07499C2.45222 4.78391 5.12961 2.10652 8.4207 2.10652Z"/>
       </g>
       <defs>
