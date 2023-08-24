@@ -13,6 +13,7 @@ import { LoadingSpinner } from '@/components/LoadingSpinner/LoadingSpinner';
 import { Heart, Reload } from '@/public/svg';
 import { addFav, deleteFav, getFav } from '@/utils/favourites';
 import { type CatFavourite } from '@/types/favourites';
+import { BurgerMenu } from '@/components/BurgerMenu/BurgeMenu';
 
 interface Breed {
   id: number
@@ -47,6 +48,7 @@ export default function Gallery () {
   const [filters, setFilters] = useState<Filter>({
     limit: 5
   });
+  const [burger, setBurger] = useState(false);
 
   useEffect(() => {
     getData<CatImage[]>(`images/search?${filterToQuery(filters)}`)
@@ -79,10 +81,22 @@ export default function Gallery () {
     await addFav('favourites', { image_id: id });
   }
 
+  const toggleBurger = () => {
+    setBurger(prevState => !prevState);
+  }
+
+  if (burger) {
+    return (
+      <div className={cn('burgerMenu')}>
+        <BurgerMenu onClick={toggleBurger}/>
+      </div>
+    )
+  }
+
   return (
     <div>
       <div className={cn('pageContent')}>
-      <Header/>
+      <Header onClick={toggleBurger}/>
         <div className={cn('contentContainer')}>
           <div className={cn('filterParams')}>
           <div className={cn('breadCrumbs')}>

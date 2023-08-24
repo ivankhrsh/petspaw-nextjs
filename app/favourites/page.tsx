@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import { Header } from '@/components/Header/Header';
 import React, { useEffect, useState } from 'react';
 import styles from './page.module.scss';
 import classNames from 'classnames/bind';
@@ -20,7 +19,6 @@ export default function Favourites () {
 
   return (
     <div>
-      <Header/>
       <div className={cn('contentContainer')}>
       {error && (<div className={cn('error')}>{error}</div>)}
       {favourites.length > 0 && favourites.map((favourite) => (
