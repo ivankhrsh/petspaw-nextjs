@@ -1,11 +1,12 @@
-import { Paw, PetsPaw } from "@/public/svg";
+import { Paw, PetsPaw } from '@/public/svg';
 import styles from './page.module.scss'
-import { Button } from "@/components/Button/Button";
+import { Button } from '@/components/Button/Button';
 import classNames from 'classnames/bind';
+import React from 'react';
 
 const cn = classNames.bind(styles);
 
-export default function Home() {
+export default function Home () {
   return (
     <main>
       <div className={cn('logo')}>

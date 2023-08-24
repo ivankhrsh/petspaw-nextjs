@@ -1,14 +1,16 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
-import React, { useEffect, useState } from 'react'
-import { Button } from '@/components/Button/Button'
-import styles from './page.module.scss'
-import classNames from 'classnames/bind'
-import { SelectItem } from '@/components/SelectItem/SelectItem'
-import { getData } from '@/utils/getData'
-import { ActionButton } from '@/components/ActionButton/ActionButton'
-import { Header } from '@/components/Header/Header'
-import { type CatImage } from '@/types/CatImage'
-import { LoadingSpinner } from '@/components/LoadingSpinner/LoadingSpinner'
+import React, { useEffect, useState } from 'react';
+import { Button } from '@/components/Button/Button';
+import styles from './page.module.scss';
+import classNames from 'classnames/bind';
+import { SelectItem } from '@/components/SelectItem/SelectItem';
+import { getData } from '@/utils/getData';
+import { ActionButton } from '@/components/ActionButton/ActionButton';
+import { Header } from '@/components/Header/Header';
+import { type CatImage } from '@/types/CatImage';
+import { LoadingSpinner } from '@/components/LoadingSpinner/LoadingSpinner';
+import { Reload } from '@/public/svg';
 
 interface Breed {
   id: number
@@ -127,7 +129,11 @@ export default function Gallery () {
             onChange={(event) => { handleFilterChange(event, 'limit') }}
             />
           <div className={cn('reloadButton')}>
-            <ActionButton btnType='button' onClick={handleReload}/>
+            <ActionButton
+              btnType='button'
+              text={<Reload/>}
+              onClick={handleReload}
+            />
           </div>
         </div>
 

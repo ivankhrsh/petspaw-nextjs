@@ -22,7 +22,8 @@ export const Search: FC = () => {
     if (e.key === 'Enter' && searchParams.length > 0) {
       const params = new URLSearchParams({ q: searchParams });
       try {
-        const res = await getData<CatData[]>(`breeds/search?q=${params}`);
+        // const res =
+        await getData<CatData[]>(`breeds/search?q=${params.toString()}`);
         router.push(`/search/${searchParams}`);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -34,7 +35,8 @@ export const Search: FC = () => {
     if (searchParams.length > 0) {
       const params = new URLSearchParams({ q: searchParams });
       try {
-        const res = await getData<CatData[]>(`breeds/search?q=${params}`);
+        // const res =
+        await getData<CatData[]>(`breeds/search?q=${params.toString()}`);
         router.push(`/search/${searchParams}`);
       } catch (error) {
         console.error('Error fetching data:', error);
