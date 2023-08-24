@@ -15,7 +15,7 @@ export default function Favourites () {
   const [error, setError] = useState<string>('');
 
   useEffect(() => {
-    getFav('favourites').then((data) => { setFavourites(data) }).catch((error) => { setError(error) });
+    getFav<CatFavourite[]>('favourites').then((data) => { setFavourites(data) }).catch((error) => { setError(error) });
   }, [])
 
   return (
