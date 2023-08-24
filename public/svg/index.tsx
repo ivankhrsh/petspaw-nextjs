@@ -178,7 +178,7 @@ export const Dislike = ({ ...props }) => {
   )
 }
 
-export const Favourites = ({ ...props }) => {
+export const Heart = ({ ...props }) => {
   return (
   <svg
     xmlns="http://www.w3.org/2000/svg"

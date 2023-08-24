@@ -4,7 +4,7 @@ import React, { type ReactNode, type FC } from 'react'
 
 interface Props {
   text?: string | ReactNode
-  onClick: () => void
+  onClick: () => void | Promise<void>
   btnType?: 'button' | 'nav' | 'active'
 }
 

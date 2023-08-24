@@ -2,7 +2,7 @@ import React, { type FC } from 'react'
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss'
 import { Button } from '../Button/Button';
-import { Burger, Dislike, Favourites, Like } from '@/public/svg';
+import { Burger, Dislike, Heart, Like } from '@/public/svg';
 import { HeaderButton } from '../HeaderButton/HeaderButton';
 import { Search } from '../SearchInput/SearchInput';
 
@@ -18,7 +18,7 @@ export const Header: FC = () => {
           <Button link="/likes" text={<Like/>} btnType='nav' />
         </div>
         <div className={cn('headerFav')}>
-          <Button link="/favourites" text={<Favourites/>} btnType='nav' />
+          <Button link="/favourites" text={<Heart/>} btnType='nav' />
         </div>
         <div className={cn('headerDislikes')}>
           <Button link="/dislikes" text={<Dislike/>} btnType='nav' />
