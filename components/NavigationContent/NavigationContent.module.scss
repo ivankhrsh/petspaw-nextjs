@@ -1,0 +1,86 @@
+.navigationLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.image {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .pageContent {
+    margin: 0 25%;
+  }
+
+  .galleryLinkContainer {
+    display: flex;
+    flex-direction: column;
+    width: 138px;
+    gap: 20px;
+  }
+
+  .image {    
+    display: block;
+    border-radius: 20px;
+    border: 4px solid rgba(255, 255, 255, 0.60);
+
+    &:hover {
+      border-color:#FFF;
+    }
+
+    &:active {
+      border-color:#FBE0DC;
+    }
+  }
+
+  .voteImage {    
+    background: #B4B7FF;
+    padding: 33px 15px;
+  }
+
+  .breedImage{    
+    background: #97EAB9;
+    padding: 13px 9px;
+  }
+
+  .galleryImage {    
+    background: #FFD280;
+    padding: 0px 9px;
+  }
+
+  .navigationLinks {
+    display: grid;
+    grid-template-columns: auto auto auto; 
+    justify-content: start;
+  }
+}
+
+
+@media screen and (min-width: 1200px) {
+  .navigationLinks {
+    gap: 16px;
+  }
+
+  .imageContainer {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+    max-width: 50%;
+  }
+
+  .imageBackground {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 100%;
+    max-width: 700px;
+    height: 90%;
+    border-radius: 20px;
+    background: #FBE0DC;
+    z-index: -1;
+  }
+}

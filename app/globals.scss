@@ -1,6 +1,59 @@
 @import 'normalize.css';
 
-.pageContent {
+.page {
   background-color: #F8F8F7;
   margin: 20px;
+  color: #1D1D1D;
+  font-style: normal;
+}
+
+.logo {
+  display: inline-block;
+  margin-bottom: 80px;
+}
+
+.title {
+  margin: 0 0 10px;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 58px;
+}
+
+.welcomeMessage {
+  margin: 10px 0 60px;
+  color: #8C8C8C;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.linksTitle {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.pageDesktopContent {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .page {
+    margin: 30px auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .page {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    &DesktopContent {
+      position: sticky;
+      top: 30px;
+      display: block;
+      height: max-content;
+      margin: 0 auto;
+    }
+  }
 }
