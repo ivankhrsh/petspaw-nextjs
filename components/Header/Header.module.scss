@@ -41,6 +41,7 @@
 
 @media screen and (min-width: 1024px) {
   .headerContent {
+    display: grid;
     grid-template-areas: 
     "search  like fav dislike";
     grid-template-columns: auto 60px 60px 60px;

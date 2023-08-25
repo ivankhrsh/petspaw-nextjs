@@ -19,14 +19,12 @@
     }
   }
 
-  .item {
+  .image {
     &Container {
-      overflow: hidden;
       display: flex;
       position: relative;
       z-index: 1;
       margin: 0 auto;
-      overflow: hidden;
       border-radius: 20px;
     }
   

@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 'use client'
+
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/Button/Button';
 import styles from './page.module.scss';
@@ -14,6 +14,7 @@ import { Heart, Reload } from '@/public/svg';
 import { addFav, deleteFav, getFav } from '@/utils/favourites';
 import { type CatFavourite } from '@/types/favourites';
 import { BurgerMenu } from '@/components/BurgerMenu/BurgeMenu';
+import Image from 'next/image';
 
 interface Breed {
   id: number
@@ -49,13 +50,16 @@ export default function Gallery () {
     limit: 5
   });
   const [burger, setBurger] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     getData<CatImage[]>(`images/search?${filterToQuery(filters)}`)
       .then((data) => { setCats(data) }).catch((error) => { setError(error) })
 
     getData<Breed[]>('breeds')
       .then((data) => { setBreeds(data) }).catch((error) => { setError(error) })
+      .finally(() => { setIsLoading(false) })
   }, [])
 
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>, filterType: string) => {
@@ -66,7 +70,10 @@ export default function Gallery () {
   }
 
   const handleReload = async () => {
+    setIsLoading(true);
+    setCats([]);
     const data = await getData<CatImage[]>(`images/search?${filterToQuery(filters)}`);
+    setIsLoading(false);
     setCats(data);
   }
 
@@ -163,26 +170,32 @@ export default function Gallery () {
               />
             </div>
           </div>
-
-          <div className={cn('photosContainer')}>
+            {isLoading && (<LoadingSpinner/>)}
+            <div className={cn(
+              'photosContainer',
+              { photosContainer5: cats.length === 5 },
+              { photosContainer10: cats.length === 10 },
+              { photosContainer15: cats.length === 15 },
+              { photosContainer20: cats.length === 20 })}
+            >
             {error && (<div className={cn('error')}>{error}</div>)}
-            {((cats.length > 0)
-              ? (cats.map(item => (
-              <div className={cn('imageContainer')} key={item.id}>
-                <img className={cn('catImage')} src={item.url} alt='cat'/>
+            {(cats.length > 0) && (cats.map((item, index) => (
+              <div className={cn('imageContainer', `img${index + 1}`)} key={item.id}>
+                <Image
+                  className={cn('catImage')}
+                  src={item.url}
+                  alt='cat'
+                  width={item.width}
+                  height={item.height}
+                />
                 <div className={cn('customOverlay')}></div>
 
                 <div className={cn('likeContainer')}>
                   <ActionButton text={<Heart/>} onClick={async () => { await toggleLike(item.id); }} btnType='nav'/>
                 </div>
               </div>
-                )))
-              : (
-                <div className="loading-spinner">
-                  <LoadingSpinner />
-                </div>
-                ))}
-          </div>
+            )))}
+            </div>
         </div>
       </div>
     </div>

@@ -100,7 +100,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 99%;
+  height: 100%;
   overflow: hidden;
   background-color: #FF868E; 
   opacity: 0;
@@ -108,9 +108,90 @@
   border-radius: 20px;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
+  .pageContent {
+    margin: 0 30px;
+  }
+
   .photosContainer {
-    flex-direction: row;
-    flex-wrap: wrap;
+    margin: 0 20px;
+    display: grid;
+
+    &5{
+      grid-template-areas: 
+      "img1 img2 img3"
+      "img1 img5 img5"
+      "img4 img5 img5";
+    }
+
+    &10{
+      grid-template-areas: 
+      "img1 img2 img3"
+      "img1 img5 img5"
+      "img4 img5 img5"
+      "img6 img7 img8"
+      "img9 img9 img8"
+      "img9 img9 img10";
+    }
+
+    &15{
+      grid-template-areas: 
+      "img1 img2 img3"
+      "img1 img5 img5"
+      "img4 img5 img5"
+      "img6 img7 img8"
+      "img9 img9 img8"
+      "img9 img9 img10"
+      "img11 img12 img13"
+      "img11 img15 img15"
+      "img14 img15 img15";
+    }
+
+    &20{
+      grid-template-areas: 
+      "img1 img2 img3"
+      "img1 img5 img5"
+      "img4 img5 img5"
+      "img6 img7 img8"
+      "img9 img9 img8"
+      "img9 img9 img10"
+      "img11 img12 img13"
+      "img11 img15 img15"
+      "img14 img15 img15"
+      "img16 img17 img18"
+      "img19 img19 img18"
+      "img19 img19 img20";
+    }
+  }
+  .imageContainer {
+    margin: 0;
+  }
+
+  .catImage {
+    object-fit: cover;
+  }
+}
+
+@function generate-image-classes($count, $repeatAfter) {
+  $image-classes: ();
+
+  @for $i from 1 through $count {
+    $class-name: "img#{$i}";
+
+    $grid-area: img#{($i - 1) % $repeatAfter + 1};
+
+    $image-classes: append($image-classes, ('.' + $class-name) (grid-area: $grid-area), comma);
+  }
+
+  @return $image-classes;
+}
+
+$generated-classes: generate-image-classes(20, 20);
+
+@each $class in $generated-classes {
+  #{nth($class, 1)} {
+    @each $property, $value in nth($class, 2) {
+      #{$property}: $value;
+    }
   }
 }
