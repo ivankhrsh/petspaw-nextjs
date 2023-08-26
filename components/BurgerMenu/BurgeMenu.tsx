@@ -18,7 +18,7 @@ export const BurgerMenu: FC<Props> = ({ onClick }) => {
     <div className={cn('burger')}>
       <div className={cn('burgerList')}>
         <div className={cn('burgerButton')}>
-          <ActionButton onClick={onClick} btnType='nav' text={<Close/>}/>
+          <ActionButton onClick={onClick} type='nav' text={<Close/>}/>
         </div>
         <div className={cn('navigation')}>
           <NavigationContent/>
