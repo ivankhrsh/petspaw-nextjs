@@ -1,28 +1,28 @@
 'use client'
 
 import { BackArrow } from '@/public/svg';
-import styles from './HeaderButton.module.scss'
+import styles from './Button.module.scss'
 import classNames from 'classnames/bind';
 import Link from 'next/link'
 import React, { type FC, type ReactNode, useState } from 'react'
+import { type ButtonType } from '@/types/button';
 
-interface Props {
+interface Props extends ButtonType {
   link: string
   text?: string | ReactNode
-  btnType?: 'button' | 'nav' | 'active'
   backBtn?: boolean
 }
 
 const cn = classNames.bind(styles);
 
-export const HeaderButton: FC<Props> = ({ link, text, btnType, backBtn }) => {
+export const HeaderButton: FC<Props> = ({ link, text, type, backBtn }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const buttonClassNames = cn({
     pageLink: true,
-    button: btnType === 'button',
-    nav: btnType === 'nav',
-    active: btnType === 'active'
+    button: type === 'button',
+    nav: type === 'nav',
+    active: type === 'active'
   });
 
   const handleMouseEnter = () => {

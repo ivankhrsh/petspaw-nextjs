@@ -15,7 +15,7 @@
 }
 
 .nav {
-  padding: 15px 0;
+  padding: 15px;
   background: #FFF;
   color: #FF868E;
 
@@ -27,6 +27,10 @@
     color: #FFF;
     background: #FF868E;
   }
+
+  &:focus {
+    outline: solid #FBE0DC;
+  }
 }
 
 .button {
@@ -37,10 +41,39 @@
     color: #FFF;
     background: #FF868E;
   }
+
+  &:focus {
+    outline: solid #FF868E;
+  }
 }
 
 .active {
   pointer-events:none;
   color: #FFF;
   background: #FF868E;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.search {
+  position: relative;
+  top: -85%;
+  right: -99%;
+  height: 40px;
+  width: 40px;
+  font-size: 12px;
+  padding: 0;
+  background: #FBE0DC;
+  color: #FF868E;
+
+  &:hover {
+    color: #FFF;
+    background: #FF868E;
+  }
+
+  &:focus {
+    outline: solid #FF868E;
+  }
 }

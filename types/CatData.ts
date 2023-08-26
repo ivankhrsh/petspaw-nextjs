@@ -3,7 +3,12 @@ interface Weight {
   metric: string
 }
 
-interface Image {
+export interface Breed {
+  id: number
+  name: string
+}
+
+export interface CatImage {
   id: string
   width: number
   height: number
@@ -29,7 +34,7 @@ export interface CatData {
   hairless: number
   health_issues: number
   hypoallergenic: number
-  image: Image
+  image: CatImage
   indoor: number
   intelligence: number
   lap: number

@@ -6,7 +6,7 @@ import styles from './SearchInput.module.scss'
 import { getData } from '@/utils/getData';
 import { type CatData } from '@/types/CatData';
 import { useRouter } from 'next/navigation';
-import { SearchButton } from '../SearchButton/SearchButton';
+import { SearchButton } from '../Button/SearchButton';
 
 const cn = classNames.bind(styles);
 
@@ -54,7 +54,7 @@ export const Search: FC = () => {
         onChange={handleSearch}
         onKeyDown={handleKeyPress}
       />
-        <SearchButton onClick={handleClick} btnType="button"/>
+        <SearchButton onClick={handleClick} btnType="search"/>
     </>
   )
 };

@@ -15,6 +15,10 @@
   margin-bottom: 10px;
 }
 
+.serviceContent {
+  padding: 10px 20px 0;
+}
+
 .contentContainer {
   display: flex;
   flex-direction: column;
@@ -193,5 +197,52 @@ $generated-classes: generate-image-classes(20, 20);
     @each $property, $value in nth($class, 2) {
       #{$property}: $value;
     }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .uploadButton {
+    margin-bottom: 0;
+  }
+
+  .breadCrumbs {
+    margin-bottom: 0;
+  }
+
+  .serviceContent {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: auto 143px;
+  }
+
+  .filterParams {
+    display: grid;
+    grid-template-areas: 
+    "order order type type"
+    "breed breed limit reload";
+    grid-template-columns: auto auto auto 60px;
+    row-gap: 10px;
+    column-gap: 20px;
+  }
+
+  .filterOrder {
+    grid-area: order;
+  }
+
+  .filterType {
+    grid-area: type;
+  }
+
+  .filterBreed {
+    grid-area: breed;
+  }
+
+  .filterLimit {
+    grid-area: limit;
+  }
+
+  .reloadButton {
+    grid-area: reload;
+    width: 60px;
   }
 }

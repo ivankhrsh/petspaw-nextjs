@@ -1,11 +1,11 @@
 import { Search } from '@/public/svg';
-import styles from './SearchButton.module.scss'
+import styles from './Button.module.scss'
 import classNames from 'classnames/bind';
 import React, { type FC } from 'react'
 
 interface Props {
   onClick: () => void | Promise<void>
-  btnType?: 'button' | 'nav' | 'active'
+  btnType?: 'button' | 'nav' | 'active' | 'search'
 }
 
 const cn = classNames.bind(styles);
@@ -15,7 +15,8 @@ export const SearchButton: FC<Props> = ({ btnType, onClick }) => {
     pageLink: true,
     button: btnType === 'button',
     nav: btnType === 'nav',
-    active: btnType === 'active'
+    active: btnType === 'active',
+    search: btnType === 'search'
   });
 
   return (

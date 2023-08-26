@@ -3,7 +3,7 @@
 import classNames from 'classnames/bind';
 import React, { type FC } from 'react'
 import styles from './BurgerMenu.module.scss';
-import { ActionButton } from '../ActionButton/ActionButton';
+import { ActionButton } from '../Button/ActionButton';
 import { Close } from '@/public/svg';
 import NavigationContent from '../NavigationContent/NavigationContent';
 

@@ -20,7 +20,7 @@ export default function NavigationContent () {
         height={124}
         alt="Vote Table"
       />
-      <Button link="/voting" text="Voting" btnType="nav"/>
+      <Button link="/voting" text="Voting" type="nav"/>
     </div>
 
     <div className={cn('galleryLinkContainer')}>
@@ -31,7 +31,7 @@ export default function NavigationContent () {
         height={163}
         alt="Cat"
       />
-      <Button link="/breeds" text="Breeds" btnType="nav"/>
+      <Button link="/breeds" text="Breeds" type="nav"/>
     </div>
 
     <div className={cn('galleryLinkContainer')}>
@@ -42,7 +42,7 @@ export default function NavigationContent () {
         height={190}
         alt="Phone"
       />
-      <Button link="/gallery" text="Gallery" btnType="nav"/>
+      <Button link="/gallery" text="Gallery" type="nav"/>
     </div>
   </div>
   );

@@ -6,24 +6,25 @@ import classNames from 'classnames/bind';
 import Link from 'next/link'
 import React, { type FC, type ReactNode } from 'react'
 import { useRouter } from 'next/navigation';
+import { type ButtonType } from '@/types/button';
 
-interface Props {
+interface Props extends ButtonType {
   link: string
   text?: string | ReactNode
-  btnType?: 'button' | 'nav' | 'active'
   backBtn?: boolean
 }
 
 const cn = classNames.bind(styles);
 
-export const Button: FC<Props> = ({ link, text, btnType, backBtn }) => {
+export const Button: FC<Props> = ({ link, text, type, backBtn }) => {
   const router = useRouter();
 
   const buttonClassNames = cn({
     pageLink: true,
-    button: btnType === 'button',
-    nav: btnType === 'nav',
-    active: btnType === 'active'
+    button: type === 'button',
+    nav: type === 'nav',
+    active: type === 'active',
+    search: type === 'search'
   });
 
   if (backBtn) {
