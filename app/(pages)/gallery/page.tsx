@@ -7,12 +7,13 @@ import { SelectItem } from '@/components/SelectItem/SelectItem';
 import { getData } from '@/utils/getData';
 import { type Breed, type CatImage } from '@/types/CatData';
 import { LoadingSpinner } from '@/components/LoadingSpinner/LoadingSpinner';
-import { Reload } from '@/public/svg';
+import { Reload, Upload } from '@/public/svg';
 import { type Filter } from '@/types/filter';
 import { filterToQuery } from '@/utils/filterToQuery';
-import { ActionButton, Button } from '@/components/Button';
+import { ActionButton } from '@/components/Button';
 import { BreadCrumbs } from '@/components/BreadCrumbs/BreadCrumbs';
 import { GalleryLayout } from '@/components/ImagesLayout/GalleryLayout';
+import { Uploader } from '@/components/Uploader/Uploader';
 
 const cn = classNames.bind(styles)
 
@@ -24,6 +25,7 @@ export default function Gallery () {
     limit: 5
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -53,6 +55,16 @@ export default function Gallery () {
     setCats(data);
   }
 
+  const toggleModal = () => {
+    setIsModalOpen((prevState) => !prevState);
+  };
+
+  if (isModalOpen) {
+    return (
+      <Uploader handleModal={toggleModal}/>
+    );
+  }
+
   return (
     <div className={cn('contentContainer')}>
       <div className={cn('serviceContent')}>
@@ -60,7 +72,11 @@ export default function Gallery () {
           <BreadCrumbs/>
         </div>
         <div className={cn('uploadButton')}>
-          <Button link='/upload' text='Upload' type='button' />
+          <ActionButton
+            text={<><Upload style={{ marginRight: '10px' }} /> Upload</>}
+            type='button'
+            onClick={toggleModal}
+          />
         </div>
         </div>
         <div className={cn('filterParams')}>
