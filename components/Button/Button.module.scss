@@ -1,0 +1,117 @@
+.pageLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 10px 0;
+  border-radius: 10px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav {
+  padding: 15px;
+  background: #FFF;
+  color: #FF868E;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background: #FBE0DC;
+  }
+
+  &:active {
+    color: #FFF;
+    background: #FF868E;
+  }
+
+  &:focus {
+    outline: solid #FBE0DC;
+  }
+}
+
+.button {
+  background: #FBE0DC;
+  color: #FF868E;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    color: #FFF;
+    background: #FF868E;
+  }
+
+  &:focus {
+    outline: solid #FF868E;
+  }
+}
+
+.active {
+  pointer-events:none;
+  color: #FFF;
+  background: #FF868E;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.search {
+  position: relative;
+  top: -85%;
+  right: -99%;
+  height: 40px;
+  width: 40px;
+  font-size: 12px;
+  padding: 0;
+  background: #FBE0DC;
+  color: #FF868E;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    color: #FFF;
+    background: #FF868E;
+  }
+
+  &:focus {
+    outline: solid #FF868E;
+  }
+}
+
+.voteUp {
+  color: #FFF;
+  border-radius: 0;
+  background: #97EAB9;
+
+  &:hover {
+    color: #97EAB9;
+    background: #97eab94d;
+  }
+}
+
+.voteDown {
+
+  color: #FFF;
+  border-radius: 0;
+  background: #FFD280;
+
+  &:hover {
+    color: #FFD280;
+    background: #ffd2804d;
+  }
+}
+
+.voteLike {
+  color: #FFF;
+  border-radius: 0;
+  background: #FF868E;
+
+  &:hover {
+    color: #FF868E;
+    background: #ff868e4d;
+  }
+}

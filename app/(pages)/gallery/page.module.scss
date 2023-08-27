@@ -1,0 +1,76 @@
+.contentContainer {
+  margin: 0 20px;
+}
+
+.serviceContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0 0;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #FFF;
+  border-radius: 20px;
+}
+
+.filterParams {
+  padding: 20px 10px 10px;
+  margin: 10px 0;
+  border-radius: 20px;
+  background: #F8F8F7;
+}
+
+.reloadButton {
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+  .uploadButton {
+    margin-bottom: 0;
+  }
+
+  .breadCrumbs {
+    margin-bottom: 0;
+  }
+
+  .serviceContent {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: auto 143px;
+  }
+
+  .filterParams {
+    display: grid;
+    grid-template-areas: 
+    "order order type type"
+    "breed breed limit reload";
+    grid-template-columns: auto auto auto 60px;
+    row-gap: 10px;
+    column-gap: 20px;
+  }
+
+  .filterOrder {
+    grid-area: order;
+  }
+
+  .filterType {
+    grid-area: type;
+  }
+
+  .filterBreed {
+    grid-area: breed;
+  }
+
+  .filterLimit {
+    grid-area: limit;
+  }
+
+  .reloadButton {
+    grid-area: reload;
+    margin-top: 0;
+  }
+}

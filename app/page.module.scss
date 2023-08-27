@@ -1,0 +1,44 @@
+.imageContainer {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .pageContent {
+    margin: 0 25%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .page {
+    &Content {
+      margin: 0 auto;
+    }
+
+    &Mobile {
+      display: none;
+    }
+  }
+
+  .image {
+    &Container {
+      display: flex;
+      position: relative;
+      z-index: 1;
+      margin: 0 auto;
+      border-radius: 20px;
+    }
+  
+    &Background {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 100%;
+      max-width: 700px;
+      height: 90%;
+      border-radius: 20px;
+      background: #FBE0DC;
+      z-index: -1;
+    }
+
+  }
+}

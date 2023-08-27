@@ -1,0 +1,24 @@
+.burger {
+  &List {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+  }
+
+  &Button {
+    width: 60px;
+    height: 60px;
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .burger {
+    margin: 30px 30px;
+  }
+  .navigation {
+    display: flex;
+    justify-content: center;
+  }
+}
