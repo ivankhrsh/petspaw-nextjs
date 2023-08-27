@@ -7,13 +7,12 @@ import { SelectItem } from '@/components/SelectItem/SelectItem';
 import { getData } from '@/utils/getData';
 import { type Breed, type CatImage } from '@/types/CatData';
 import { LoadingSpinner } from '@/components/LoadingSpinner/LoadingSpinner';
-import { Heart, Reload } from '@/public/svg';
-import { addFav, deleteFav, getFav } from '@/utils/favourites';
-import { type CatFavourite } from '@/types/favourites';
-import Image from 'next/image';
+import { Reload } from '@/public/svg';
 import { type Filter } from '@/types/filter';
 import { filterToQuery } from '@/utils/filterToQuery';
 import { ActionButton, Button } from '@/components/Button';
+import { BreadCrumbs } from '@/components/BreadCrumbs/BreadCrumbs';
+import { GalleryLayout } from '@/components/ImagesLayout/GalleryLayout';
 
 const cn = classNames.bind(styles)
 
@@ -54,28 +53,11 @@ export default function Gallery () {
     setCats(data);
   }
 
-  const toggleLike = async (id: string) => {
-    const data: CatFavourite[] = await getFav('favourites');
-    const currentItem = data.find((item) => item.image_id === id);
-    if (currentItem) {
-      await deleteFav(`favourites/${currentItem.id}`);
-      return;
-    }
-
-    await addFav('favourites', { image_id: id });
-  }
-
   return (
     <div>
       <div className={cn('serviceContent')}>
       <div className={cn('breadCrumbs')}>
-        <div className={cn('backButton')}>
-          <Button link='/' type='button' backBtn={true}/>
-        </div>
-
-        <div className={cn('currentPageButton')}>
-          <Button link='/gallery' text='Gallery' type='active'/>
-        </div>
+        <BreadCrumbs text='Gallery'/>
         </div>
         <div className={cn('uploadButton')}>
           <Button link='/upload' text='Upload' type='button' />
@@ -139,34 +121,8 @@ export default function Gallery () {
           </div>
         </div>
           {isLoading && (<LoadingSpinner/>)}
-          <div className={cn(
-            'photosContainer',
-            { photosContainer5: cats.length === 5 },
-            { photosContainer10: cats.length === 10 },
-            { photosContainer15: cats.length === 15 },
-            { photosContainer20: cats.length === 20 })}
-          >
           {error && (<div className={cn('error')}>{error}</div>)}
-          {(cats.length > 0) && (cats.map((item, index) => (
-            <div className={cn('imageContainer', `img${index + 1}`)} key={item.id}>
-              <Image
-                className={cn('catImage')}
-                src={item.url}
-                alt='cat'
-                width={item.width}
-                height={item.height}
-              />
-              <div className={cn('customOverlay')}></div>
-
-              <div className={cn('likeContainer')}>
-                <ActionButton
-                text={<Heart/>}
-                onClick={async () => { await toggleLike(item.id); }}
-                type='nav'/>
-              </div>
-            </div>
-          )))}
-          </div>
+            <GalleryLayout cats={cats} />
       </div>
   )
 }

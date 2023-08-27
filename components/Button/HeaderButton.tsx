@@ -3,9 +3,10 @@
 import { BackArrow } from '@/public/svg';
 import styles from './Button.module.scss'
 import classNames from 'classnames/bind';
-import Link from 'next/link'
-import React, { type FC, type ReactNode, useState } from 'react'
+import Link from 'next/link';
+import React, { type FC, type ReactNode, useState } from 'react';
 import { type ButtonType } from '@/types/button';
+import { usePathname } from 'next/navigation';
 
 interface Props extends ButtonType {
   link: string
@@ -17,12 +18,13 @@ const cn = classNames.bind(styles);
 
 export const HeaderButton: FC<Props> = ({ link, text, type, backBtn }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const pathname = usePathname();
 
   const buttonClassNames = cn({
     pageLink: true,
     button: type === 'button',
     nav: type === 'nav',
-    active: type === 'active'
+    active: type === 'active' || pathname === link
   });
 
   const handleMouseEnter = () => {

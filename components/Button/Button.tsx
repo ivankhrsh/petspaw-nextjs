@@ -5,7 +5,7 @@ import styles from './Button.module.scss'
 import classNames from 'classnames/bind';
 import Link from 'next/link'
 import React, { type FC, type ReactNode } from 'react'
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { type ButtonType } from '@/types/button';
 
 interface Props extends ButtonType {
@@ -18,12 +18,13 @@ const cn = classNames.bind(styles);
 
 export const Button: FC<Props> = ({ link, text, type, backBtn }) => {
   const router = useRouter();
+  const pathname = usePathname();
 
   const buttonClassNames = cn({
     pageLink: true,
     button: type === 'button',
     nav: type === 'nav',
-    active: type === 'active',
+    active: type === 'active' || pathname === link,
     search: type === 'search'
   });
 

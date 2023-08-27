@@ -1,9 +1,3 @@
-.breadCrumbs {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
 .serviceContent {
   padding: 10px 20px 0;
 }
@@ -16,24 +10,8 @@
   border-radius: 20px;
 }
 
-.currentPageButton {
-  width: 156px;
-  height: 40px;
-}
-
 .uploadButton {
   margin-bottom: 10px;
-}
-
-.catImage {
-  border-radius: 20px;
-  width: 100%;
-  height: 100%;
-}
-
-.backButton {
-  width: 40px;
-  height: 40px;
 }
 
 .filterParams {
@@ -43,147 +21,10 @@
   background: #F8F8F7;
 }
 
-.imageContainer {
-  position: relative;
-}
-
-.photosContainer {
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
-  backface-visibility: hidden;
-
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.imageContainer {
-  margin: 0 20px;
-}
-
-.likeContainer {
-  transition: 0.3s ease-in-out;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.imageContainer:hover .catImage {
-  opacity: 0.3;
-}
-
-.imageContainer:hover .likeContainer {
-  opacity: 1;
-}
-
 .reloadButton {
   margin-top: 10px;
 }
 
-.imageContainer:hover .customOverlay {
-  opacity: 0.3;
-}
-
-.customOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: #FF868E; 
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .photosContainer {
-    margin: 0 20px 20px;
-    display: grid;
-
-    &5{
-      grid-template-areas: 
-      "img1 img2 img3"
-      "img1 img5 img5"
-      "img4 img5 img5";
-    }
-
-    &10{
-      grid-template-areas: 
-      "img1 img2 img3"
-      "img1 img5 img5"
-      "img4 img5 img5"
-      "img6 img7 img8"
-      "img9 img9 img8"
-      "img9 img9 img10";
-    }
-
-    &15{
-      grid-template-areas: 
-      "img1 img2 img3"
-      "img1 img5 img5"
-      "img4 img5 img5"
-      "img6 img7 img8"
-      "img9 img9 img8"
-      "img9 img9 img10"
-      "img11 img12 img13"
-      "img11 img15 img15"
-      "img14 img15 img15";
-    }
-
-    &20{
-      grid-template-areas: 
-      "img1 img2 img3"
-      "img1 img5 img5"
-      "img4 img5 img5"
-      "img6 img7 img8"
-      "img9 img9 img8"
-      "img9 img9 img10"
-      "img11 img12 img13"
-      "img11 img15 img15"
-      "img14 img15 img15"
-      "img16 img17 img18"
-      "img19 img19 img18"
-      "img19 img19 img20";
-    }
-  }
-  .imageContainer {
-    margin: 0;
-  }
-
-  .catImage {
-    object-fit: cover;
-  }
-}
-
-@function generate-image-classes($count, $repeatAfter) {
-  $image-classes: ();
-
-  @for $i from 1 through $count {
-    $class-name: "img#{$i}";
-
-    $grid-area: img#{($i - 1) % $repeatAfter + 1};
-
-    $image-classes: append($image-classes, ('.' + $class-name) (grid-area: $grid-area), comma);
-  }
-
-  @return $image-classes;
-}
-
-$generated-classes: generate-image-classes(20, 20);
-
-@each $class in $generated-classes {
-  #{nth($class, 1)} {
-    @each $property, $value in nth($class, 2) {
-      #{$property}: $value;
-    }
-  }
-}
 
 @media screen and (min-width: 1024px) {
   .uploadButton {
