@@ -16,7 +16,7 @@ interface Props {
 
 export const VotesLayout: FC<Props> = ({ breeds, filter }) => {
   const deleteItem = async (id: number) => {
-    await deleteVote(id);
+    await deleteVote(id.toString());
     filter(id);
   }
 
