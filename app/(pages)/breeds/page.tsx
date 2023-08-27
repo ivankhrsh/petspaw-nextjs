@@ -35,7 +35,7 @@ export default function Breeds () {
   return (
     <div className={cn('contentContainer')}>
       <div className={cn('breadCrumbs')}>
-        <BreadCrumbs text='Breeds'/>
+        <BreadCrumbs/>
       </div>
       {isLoading && (<LoadingSpinner/>)}
       {error && (<div className={cn('error')}>{error}</div>)}

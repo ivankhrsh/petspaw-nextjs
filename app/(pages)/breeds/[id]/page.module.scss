@@ -1,10 +1,94 @@
 .content {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .image {
   border-radius: 20px;
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
 }
 
+.breed {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  border-radius: 20px;
+  border: 2px solid #FBE0DC;
+  padding: 20px 15px;
+
+  &Title {
+    margin: 0 auto;
+    width: max-content;
+    height: max-content;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  &Info {
+    display: grid;
+    gap: 10px;
+  }
+
+  &SubTitle {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  &Text {
+    color: #8C8C8C;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+}
+
+@media screen and (min-width:768px) {
+  .breed {
+    &Title {
+      font-size: 36px;
+    }
+
+    &Info {
+      display: grid;
+      gap: 10px;
+      column-gap: 10px;
+      grid-template-areas: 
+      "temp origin"
+      "temp weight"
+      "temp life";
+      grid-template-columns: 200px auto;
+      justify-content: center;
+    }
+
+    &Block {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    &Temp {
+      grid-area: temp;
+      gap: 5px;
+      flex-direction: column;
+    }
+  
+    &Origin {
+      grid-area: origin;
+    }
+  
+    &Weight {
+      grid-area: weight;
+    }
+  
+    &Life {
+      grid-area: life;
+    }
+  }
+}

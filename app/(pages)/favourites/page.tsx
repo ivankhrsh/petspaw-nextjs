@@ -32,7 +32,7 @@ export default function Favourites () {
     <div>
       <div className={cn('contentContainer')}>
       <div className={cn('breadCrumbs')}>
-        <BreadCrumbs text='Favourites'/>
+        <BreadCrumbs/>
       </div>
       {isLoading && (<LoadingSpinner/>)}
       {error && (<div className={cn('error')}>{error}</div>)}

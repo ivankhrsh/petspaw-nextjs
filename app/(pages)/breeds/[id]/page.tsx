@@ -9,6 +9,7 @@ import styles from './page.module.scss';
 import { type CatImage } from '@/types/CatData';
 import { filterToQuery } from '@/utils/filterToQuery';
 import { type BreedFullInfo } from '@/types/breed';
+import { BreadCrumbs } from '@/components/BreadCrumbs/BreadCrumbs';
 
 const cn = classNames.bind(styles);
 
@@ -47,11 +48,11 @@ export default function BreedPage ({ params }: { params: { id: string } }) {
 
   return (
     <div className={cn('content')}>
-      <p>page {params.id}</p>
+      <div className={cn('breadCrumbs')}>
+        <BreadCrumbs/>
+      </div>
       {isLoading && (<LoadingSpinner/>)}
       {error && (<div className={cn('error')}>{error}</div>)}
-      <div className={cn('breadCrumbs')}>
-      </div>
       <div className={cn('imageContainer')}>
         {
           images?.map(item => (
@@ -66,14 +67,28 @@ export default function BreedPage ({ params }: { params: { id: string } }) {
           ))
         }
       </div>
-      <div className={cn('breedInfo')}>
-        <p>{breed?.name}</p>
-        <p>{breed?.description}</p>
-        <p>{breed?.temperament}</p>
-        <p>Origin: {breed?.origin}</p>
-        <p>Weight: {breed?.weight.metric}</p>
-        <p>Life span: {breed?.life_span}</p>
-      </div>
+      <article className={cn('breed')}>
+        <h1 className={cn('breedTitle')}>{breed?.name}</h1>
+        <div className={cn('breedInfo')}>
+          <div className={cn('breedBlock', 'breedTemp')}>
+            <p className={cn('breedSubTitle')}>Temperament:</p>
+            <p className={cn('breedText')}>{breed?.temperament}</p>
+          </div>
+          <div className={cn('breedBlock', 'breedOrigin')}>
+            <p className={cn('breedSubTitle')}>Origin:</p>
+            <p className={cn('breedText')}>{breed?.origin}</p>
+          </div>
+          <div className={cn('breedBlock', 'breedWeight')}>
+            <p className={cn('breedSubTitle')}>Weight:</p>
+            <p className={cn('breedText')}>{breed?.weight.metric}</p>
+          </div>
+          <div className={cn('breedBlock', 'breedLife')}>
+            <p className={cn('breedSubTitle')}>Life span:</p>
+            <p className={cn('breedText')}>{breed?.life_span}</p>
+          </div>
+        </div>
+      </article>
+
     </div>
   );
 }
