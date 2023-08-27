@@ -15,7 +15,10 @@ export const ActionButton: FC<Props> = ({ type, onClick, text }) => {
     pageLink: true,
     button: type === 'button',
     nav: type === 'nav',
-    active: type === 'active'
+    active: type === 'active',
+    voteUp: type === 'voteUp',
+    voteDown: type === 'voteDown',
+    voteLike: type === 'voteLike'
   });
 
   return (

@@ -81,3 +81,37 @@
     outline: solid #FF868E;
   }
 }
+
+.voteUp {
+  color: #FFF;
+  border-radius: 0;
+  background: #97EAB9;
+
+  &:hover {
+    color: #97EAB9;
+    background: #97eab94d;
+  }
+}
+
+.voteDown {
+
+  color: #FFF;
+  border-radius: 0;
+  background: #FFD280;
+
+  &:hover {
+    color: #FFD280;
+    background: #ffd2804d;
+  }
+}
+
+.voteLike {
+  color: #FFF;
+  border-radius: 0;
+  background: #FF868E;
+
+  &:hover {
+    color: #FF868E;
+    background: #ff868e4d;
+  }
+}

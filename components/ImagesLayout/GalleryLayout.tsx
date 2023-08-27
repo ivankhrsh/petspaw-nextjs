@@ -1,3 +1,5 @@
+'use client';
+
 import { type CatImage } from '@/types/CatData';
 import classNames from 'classnames/bind';
 import React, { type FC } from 'react';

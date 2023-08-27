@@ -10,15 +10,15 @@ import NavigationContent from '../NavigationContent/NavigationContent';
 const cn = classNames.bind(styles);
 
 interface Props {
-  onClick: () => void
+  handleBurger: () => void
 }
 
-export const BurgerMenu: FC<Props> = ({ onClick }) => {
+export const BurgerMenu: FC<Props> = ({ handleBurger }) => {
   return (
     <div className={cn('burger')}>
       <div className={cn('burgerList')}>
         <div className={cn('burgerButton')}>
-          <ActionButton onClick={onClick} type='nav' text={<Close/>}/>
+          <ActionButton onClick={handleBurger} type='nav' text={<Close/>}/>
         </div>
         <div className={cn('navigation')}>
           <NavigationContent/>

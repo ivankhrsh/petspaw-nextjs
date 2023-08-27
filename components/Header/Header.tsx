@@ -11,14 +11,14 @@ import { ActionButton } from '../Button/ActionButton';
 const cn = classNames.bind(styles);
 
 interface Props {
-  onClick: () => void
+  handleBurger: () => void
 }
 
-export const Header: FC<Props> = ({ onClick }) => {
+export const Header: FC<Props> = ({ handleBurger }) => {
   return (
     <div className={cn('headerContent')}>
       <div className={cn('headerBurger')}>
-        <ActionButton onClick={onClick} text={<Burger/>} type='nav'/>
+        <ActionButton onClick={handleBurger} text={<Burger/>} type='nav'/>
       </div>
         <div className={cn('headerLikes')}>
           <Button link="/likes" text={<Like/>} type='nav' />

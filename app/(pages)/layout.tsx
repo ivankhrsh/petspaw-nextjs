@@ -19,14 +19,14 @@ export default function RootLayout ({
   if (burger) {
     return (
       <div className={'burgerMenu'}>
-        <BurgerMenu onClick={toggleBurger}/>
+        <BurgerMenu handleBurger={toggleBurger}/>
       </div>
     )
   }
 
   return (
     <div className='layout'>
-      <Header onClick={toggleBurger}/>
+      <Header handleBurger={toggleBurger}/>
       <div className='contentContainer'>
         {children}
       </div>
