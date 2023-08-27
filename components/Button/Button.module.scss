@@ -12,12 +12,14 @@
   letter-spacing: 2px;
   text-decoration: none;
   text-transform: uppercase;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .nav {
   padding: 15px;
   background: #FFF;
   color: #FF868E;
+  transition: background-color 0.3s;
 
   &:hover {
     background: #FBE0DC;
@@ -36,6 +38,7 @@
 .button {
   background: #FBE0DC;
   color: #FF868E;
+  transition: background-color 0.3s, color 0.3s;
 
   &:hover {
     color: #FFF;
@@ -67,6 +70,7 @@
   padding: 0;
   background: #FBE0DC;
   color: #FF868E;
+  transition: background-color 0.3s, color 0.3s;
 
   &:hover {
     color: #FFF;

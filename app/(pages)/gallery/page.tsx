@@ -54,10 +54,10 @@ export default function Gallery () {
   }
 
   return (
-    <div>
+    <div className={cn('contentContainer')}>
       <div className={cn('serviceContent')}>
-      <div className={cn('breadCrumbs')}>
-        <BreadCrumbs text='Gallery'/>
+        <div className={cn('breadCrumbs')}>
+          <BreadCrumbs/>
         </div>
         <div className={cn('uploadButton')}>
           <Button link='/upload' text='Upload' type='button' />
