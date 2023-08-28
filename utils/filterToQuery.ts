@@ -1,7 +1,7 @@
 import { type Filter } from '@/types/filter'
 
 export const filterToQuery = (filters: Filter): string => {
-  const queryParams = new URLSearchParams()
+  const queryParams = new URLSearchParams();
 
   Object.entries(filters).forEach(([key, value]) => {
     if (value !== undefined) {
@@ -9,5 +9,5 @@ export const filterToQuery = (filters: Filter): string => {
     }
   })
 
-  return queryParams.toString()
+  return queryParams.toString();
 }

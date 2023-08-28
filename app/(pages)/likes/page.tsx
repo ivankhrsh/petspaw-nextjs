@@ -45,7 +45,7 @@ export default function Likes () {
         {!isLoading && votes.length === 0 && (
           <p className={cn('emptyMessage')}>No item found</p>
         )}
-        <VotesLayout breeds={votes} filter={filterVotes}/>
+        <VotesLayout breeds={votes.slice(0, 25)} filter={filterVotes}/>
       </div>
     </div>
   )

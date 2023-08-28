@@ -30,8 +30,36 @@ async function request<T> (
   });
 }
 
+async function uploadImage<T> (
+  url: string,
+  method: RequestMethod = 'GET',
+  data: any = null
+): Promise<T> {
+  const token = process.env.NEXT_PUBLIC_API_KEY;
+  const options: RequestInit = { method };
+
+  options.headers = {
+    'x-api-key': `${token}`
+  };
+
+  if (data) {
+    options.body = data;
+  }
+
+  return await fetch(`${BASE_URL}${url}`, options).then(async (response) => {
+    if (!response.ok) {
+      return await response.json().then((error) => {
+        throw new Error(error.message);
+      });
+    }
+
+    return await response.json();
+  });
+}
+
 export const api = {
   get: async <T>(url: string) => await request<T>(url),
   post: async <T>(url: string, data?: any) => await request<T>(url, 'POST', data),
-  delete: async (url: string, data?: any) => await request(url, 'DELETE', data)
+  delete: async (url: string, data?: any) => await request(url, 'DELETE', data),
+  upload: async <T>(url: string, data?: any) => await uploadImage<T>(url, 'POST', data)
 };

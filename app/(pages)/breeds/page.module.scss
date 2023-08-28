@@ -3,5 +3,12 @@
 }
 
 .breadCrumbs {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.filterParams {
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
