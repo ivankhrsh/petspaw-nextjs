@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import './layout.scss'
 import { Header } from '@/components/Header/Header'
 import { BurgerMenu } from '@/components/BurgerMenu/BurgeMenu'
+import cn from 'classnames'
 
 export default function RootLayout ({
   children
@@ -16,19 +17,26 @@ export default function RootLayout ({
     setBurger(prevState => !prevState);
   }
 
-  if (burger) {
-    return (
-      <div className={'burgerMenu'}>
-        <BurgerMenu handleBurger={toggleBurger}/>
-      </div>
-    )
-  }
+  // if (burger) {
+  //   return (
+  //     <div className={'burgerMenu'}>
+  //       <BurgerMenu handleBurger={toggleBurger}/>
+  //     </div>
+  //   )
+  // }
 
   return (
     <div className='layout'>
-      <Header handleBurger={toggleBurger}/>
-      <div className='contentContainer'>
-        {children}
+      {burger && (
+        <div className='burgerMenu'>
+          <BurgerMenu handleBurger={toggleBurger}/>
+        </div>
+      )}
+        <div className={cn({ contentWrapper: burger })}>
+        <Header handleBurger={toggleBurger}/>
+        <div className='content'>
+          {children}
+        </div>
       </div>
     </div>
   )

@@ -14,7 +14,7 @@ export default function NavigationContent () {
   return (
     <div className={cn('navigationLinks')}>
     <div className={cn('galleryLinkContainer')}>
-      <Link href="/voting">
+      <Link href="/voting" className={cn('link')}>
         <Image
           className={cn('image', 'voteImage')}
           src={imgVote}
@@ -22,12 +22,12 @@ export default function NavigationContent () {
           height={124}
           alt="Vote Table"
         />
+          <Button link="/voting" text="Voting" type="nav"/>
         </Link>
-      <Button link="/voting" text="Voting" type="nav"/>
     </div>
 
     <div className={cn('galleryLinkContainer')}>
-      <Link href="/breeds">
+      <Link href="/breeds" className={cn('link')}>
         <Image
           className={cn('image', 'breedImage')}
           src={imgBreeds}
@@ -35,12 +35,12 @@ export default function NavigationContent () {
           height={163}
           alt="Cat"
         />
+        <Button link="/breeds" text="Breeds" type="nav"/>
       </Link>
-      <Button link="/breeds" text="Breeds" type="nav"/>
     </div>
 
       <div className={cn('galleryLinkContainer')}>
-        <Link href="/gallery">
+        <Link href="/gallery" className={cn('link')}>
           <Image
             className={cn('image', 'galleryImage')}
             src={imgGallery}
@@ -48,8 +48,8 @@ export default function NavigationContent () {
             height={190}
             alt="Phone"
           />
+          <Button link="/gallery" text="Gallery" type="nav"/>
         </Link>
-        <Button link="/gallery" text="Gallery" type="nav"/>
       </div>
   </div>
   );

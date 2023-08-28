@@ -4,6 +4,18 @@
   gap: 20px;
 }
 
+
+.link {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-decoration: none;
+  &:focus {
+    outline: 4px solid #FFF;
+    border-radius: 20px;
+  }
+}
+
 .image {
   display: none;
 }
@@ -37,6 +49,11 @@
       border-color:#FBE0DC;
     }
   }
+
+  .link:hover .image {
+    border-color:#FFF;
+  }
+  
 
   .voteImage {    
     background: #B4B7FF;
