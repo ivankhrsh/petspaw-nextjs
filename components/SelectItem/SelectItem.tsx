@@ -14,14 +14,16 @@ interface Props {
   onChange: (value: React.ChangeEvent<HTMLSelectElement>) => void
   title: string
   defaultOption?: string
+  showTitle?: boolean
+  gray?: boolean
 }
 
-export const SelectItem: FC<Props> = ({ options, onChange, title, defaultOption }) => {
+export const SelectItem: FC<Props> = ({ options, onChange, title, defaultOption, showTitle = true, gray }) => {
   return (
     <div className={cn('selectItem')} >
-     <label className={cn('selectLabel')} htmlFor={title}>{title}</label>
+     {showTitle && <label className={cn('selectLabel')} htmlFor={title}>{title}</label>}
       <select
-        className={cn('selectMenu')}
+        className={cn('selectMenu', { selectMenuGray: gray })}
         id={title}
         onChange={(event) => { onChange(event); }}
       >

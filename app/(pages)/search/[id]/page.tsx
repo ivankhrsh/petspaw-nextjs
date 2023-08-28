@@ -47,10 +47,13 @@ export default function Search ({ params }: { params: { id: string } }) {
         </div>
         {isLoading && (<LoadingSpinner/>)}
         {error && (<div className={cn('error')}>{error}</div>)}
-        {!isLoading && breeds.length === 0 && (
-          <p className={cn('emptyMessage')}>No item found</p>
+        {!isLoading && (
+          <p className={cn('resultMessage')}>{`Search results for: ${params.id}`}</p>
         )}
-        <BreedsLayout breeds={filteredBreeds}/>
+        {(!isLoading && filteredBreeds.length === 0) &&
+          (<p className={cn('emptyMessage')}>No item found</p>)
+        }
+        <BreedsLayout breeds={filteredBreeds.slice(0, 25)}/>
       </div>
     </div>
   )
