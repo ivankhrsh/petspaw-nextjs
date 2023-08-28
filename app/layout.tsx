@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Jost } from 'next/font/google'
 import { PetsPaw } from '@/public/svg';
 import NavigationContent from '@/components/NavigationContent/NavigationContent';
+import Link from 'next/link';
 
 const jost = Jost({ subsets: ['latin'] });
 
@@ -20,9 +21,9 @@ export default function RootLayout ({
     <html lang="en">
       <body className={`${jost.className} page`}>
         <div className="pageDesktopContent">
-        <div className={'logo'}>
+        <Link href='/' className={'logo'}>
           <PetsPaw/>
-        </div>
+        </Link>
         <h1 className={'title'}>Hi!👋</h1>
         <h2 className={'welcomeMessage'}>Welcome to MacPaw Bootcamp 2023</h2>
         <h2 className={'linksTitle'}>Lets start using The Cat API</h2>

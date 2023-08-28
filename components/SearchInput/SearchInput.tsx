@@ -5,13 +5,14 @@ import classNames from 'classnames/bind';
 import styles from './SearchInput.module.scss'
 import { getData } from '@/utils/getData';
 import { type CatData } from '@/types/CatData';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { SearchButton } from '../Button/SearchButton';
 
 const cn = classNames.bind(styles);
 
 export const Search: FC = () => {
   const [searchParams, setSearchParams] = useState('');
+  const pathname = usePathname();
   const router = useRouter();
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +23,6 @@ export const Search: FC = () => {
     if (e.key === 'Enter' && searchParams.length > 0) {
       const params = new URLSearchParams({ q: searchParams });
       try {
-        // const res =
         await getData<CatData[]>(`breeds/search?q=${params.toString()}`);
         router.push(`/search/${searchParams}`);
       } catch (error) {
@@ -35,7 +35,6 @@ export const Search: FC = () => {
     if (searchParams.length > 0) {
       const params = new URLSearchParams({ q: searchParams });
       try {
-        // const res =
         await getData<CatData[]>(`breeds/search?q=${params.toString()}`);
         router.push(`/search/${searchParams}`);
       } catch (error) {
@@ -49,7 +48,7 @@ export const Search: FC = () => {
       <input
         type="text"
         placeholder="Search for breeds by name"
-        className={cn('searchItem')}
+        className={cn('searchItem', { active: pathname.includes('/search') })}
         value={searchParams}
         onChange={handleSearch}
         onKeyDown={handleKeyPress}

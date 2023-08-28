@@ -19,6 +19,15 @@ article {
 .logo {
   display: inline-block;
   margin-bottom: 80px;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(1.05);
+  }
 }
 
 .title {
